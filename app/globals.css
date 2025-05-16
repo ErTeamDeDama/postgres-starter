@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000;
+  --primary: #14442c;
+  --foreground: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--background);
+  color: var(--foreground); /* Imposta il colore del testo */
+   /* Puoi anche aggiungere del padding per migliorare la spaziatura */
+}
