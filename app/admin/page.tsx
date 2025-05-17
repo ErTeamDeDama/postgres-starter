@@ -28,7 +28,7 @@ export default function AdminLogin() {
       {showToast && (
         <div className={styles.toast}>
           <Image src='/prova.png' alt="Errore" className={styles.toastIcon} />
-          <span>Credenziali errate</span>
+          <div>Access Denied</div>
         </div>
       )}
 
