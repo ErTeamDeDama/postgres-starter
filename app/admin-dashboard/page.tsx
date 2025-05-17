@@ -344,14 +344,15 @@ const handleUpdate = async (id: number, index: number) => {
                 />
               </div>
               <div className="input-group">
-                <select
-                  value={questionAnswer}
-                  onChange={(e) => setQuestionAnswer(e.target.value as "vero" | "falso")}
-                  className="input-field"
-                >
-                  <option value="vero">Vero</option>
-                  <option value="falso">Falso</option>
-                </select>
+        <select
+  value={questionAnswer ? "vero" : "falso"}
+  onChange={(e) => setQuestionAnswer(e.target.value === "vero")}
+  className="input-field"
+>
+  <option value="vero">Vero</option>
+  <option value="falso">Falso</option>
+</select>
+
               </div>
               <button type="submit" className="submit-button">Aggiungi</button>
               {questionMessage && <p className={`message ${questionMessageType}`}>{questionMessage}</p>}
