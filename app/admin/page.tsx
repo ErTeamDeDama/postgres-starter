@@ -41,9 +41,9 @@ export default function AdminLogin() {
 
           <input
             type="text"
+            value={username}
             placeholder="Username"
             className={styles.input}
-            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
 
