@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './login.module.css';
 import { handleSubmit } from './loginHelper';
+import Image from 'next/image';
 
 
 export default function AdminLogin() {
@@ -26,7 +27,7 @@ export default function AdminLogin() {
     <>
       {showToast && (
         <div className={styles.toast}>
-          <img src='/prova.png' alt="Errore" className={styles.toastIcon} />
+          <Image src='/prova.png' alt="Errore" className={styles.toastIcon} />
           <span>Credenziali errate</span>
         </div>
       )}
