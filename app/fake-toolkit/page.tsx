@@ -1,8 +1,20 @@
 import Navbar from '@/components/Navbar'
+import HeroSection from './components/HeroSection';
+import WhatAreFakeNews from './components/WhatAreFakeNews';
+import DetectionTips from './components/DetectionTips';
+import WhatToDo from './components/WhatToDo';
+import FinalCallToAction from './components/FinalCallToAction';
 
 export default function faketoolkit() {
     return(
-        <Navbar />
+    <>
+      <Navbar />
+      <HeroSection />
+      <WhatAreFakeNews />
+      <DetectionTips />
+      <WhatToDo />
+      <FinalCallToAction />
+    </>
         
     )
 }
