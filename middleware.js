@@ -6,7 +6,7 @@ export function middleware(request) {
 
   // Se non c'è sessione e la pagina è /admin-dashboard, reindirizza
   if (!session && request.nextUrl.pathname.startsWith('/admin-dashboard')) {
-    return NextResponse.redirect(new URL('/admin', request.url));
+    return NextResponse.redirect(new URL('/dama', request.url));
   }
 
   // Altrimenti, consenti l'accesso

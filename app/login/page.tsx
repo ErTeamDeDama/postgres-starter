@@ -36,7 +36,7 @@ export default function TokenLoginPage() {
         className="w-full max-w-md bg-neutral-900 rounded-2xl shadow-2xl p-8 space-y-6 border border-neutral-700"
       >
         <h1 className="text-2xl font-semibold text-center tracking-tight">
-          Accesso Amministratore
+          Login
         </h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -59,7 +59,7 @@ export default function TokenLoginPage() {
           <p className="text-center text-red-500 font-medium">{error}</p>
         )}
         <p className="text-center text-sm text-neutral-500">
-          Autenticazione riservata agli amministratori
+          Inserisci il token che ti è stato dato
         </p>
       </motion.div>
     </div>
