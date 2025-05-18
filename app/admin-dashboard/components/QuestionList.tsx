@@ -30,8 +30,23 @@ export default function QuestionList() {
   };
 
   const deleteQuestion = async (id: number) => {
-    await fetch(`/api/delete-question?id=${id}`, { method: "DELETE" });
-    fetchQuestions();
+    try {
+      const res = await fetch(`/api/delete-question`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
+
+      if (!res.ok) {
+        const err = await res.text();
+        alert("Errore nell'eliminazione: " + err);
+        return;
+      }
+
+      fetchQuestions();
+    } catch (error) {
+      alert("Errore di rete: " + error);
+    }
   };
 
   return (
