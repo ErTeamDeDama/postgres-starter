@@ -1,4 +1,4 @@
-export default function fake-toolkit() {
+export default function faketoolkit() {
     return(
         <h1>Fake news: il toolkit per riconoscerle</h1>
     )
