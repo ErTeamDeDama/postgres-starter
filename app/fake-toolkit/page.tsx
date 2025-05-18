@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 import HeroSection from './components/HeroSection';
 import WhatAreFakeNews from './components/WhatAreFakeNews';
 import DetectionTips from './components/DetectionTips';
@@ -14,6 +15,7 @@ export default function faketoolkit() {
       <DetectionTips />
       <WhatToDo />
       <FinalCallToAction />
+      <Footer />
     </>
         
     )
