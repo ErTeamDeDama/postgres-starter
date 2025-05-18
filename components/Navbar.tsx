@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
         </a>
       </div>
 
-      <Link href="/admin" className= "text-2xl font-bold text-white"> admin
+      <Link href="/login" className= "text-2xl font-bold text-white"> Login
       </Link>
     </nav>
   );
