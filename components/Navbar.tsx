@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="flex justify-between items-center px-8 py-6 border-b border-white/10 sticky top-0 z-50 backdrop-blur-md">
       <Link href="/">
-        <Image src="/ValidaFakeWhite.png" alt="ValidaFake logo" width={20} height={20} />
+        <Image src="/ValidaFakeWhite.png" alt="ValidaFake logo" width={30} height={40} />
       </Link>
 
       <div className="space-x-6 hidden md:flex">
