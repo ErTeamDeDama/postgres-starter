@@ -54,68 +54,71 @@ export default function QuestionList({
   };
 
   return (
-    <div className="form-container">
-      <h2>Domande inserite</h2>
-      {onCreateNew && (
-        <button
-          className="create-question-button"
-          onClick={onCreateNew}
-          aria-label="Aggiungi nuova domanda"
-        >
-          + Aggiungi Domanda
-        </button>
-      )}
-      <ul className="question-list">
-        {questions.map((q) => (
-          <li key={q.id}>
-            <textarea
-              value={q.domanda}
-              onChange={(e) =>
-                setQuestions((prev) =>
-                  prev.map((p) =>
-                    p.id === q.id ? { ...p, domanda: e.target.value } : p
-                  )
-                )
-              }
-              className="input-field"
-              aria-label={`Testo domanda ${q.id}`}
-            />
-            <select
-              value={q.soluzione ? "true" : "false"}
-              onChange={(e) =>
-                setQuestions((prev) =>
-                  prev.map((p) =>
-                    p.id === q.id
-                      ? { ...p, soluzione: e.target.value === "true" }
-                      : p
-                  )
-                )
-              }
-              className="input-field"
-              aria-label={`Soluzione domanda ${q.id}`}
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold">Domande inserite</h2>
+          {onCreateNew && (
+            <button
+              onClick={onCreateNew}
+              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
             >
-              <option value="true">Vero</option>
-              <option value="false">Falso</option>
-            </select>
-            <div>
-              <button
-                className="save-button"
-                onClick={() => updateQuestion(q)}
-                aria-label={`Salva domanda ${q.id}`}
+              + Aggiungi Domanda
+            </button>
+          )}
+        </div>
+        <ul className="space-y-4 max-h-[70vh] overflow-y-auto">
+          {questions.map((q) => (
+            <li
+              key={q.id}
+              className="p-4 border rounded-lg bg-gray-50 flex flex-col gap-2"
+            >
+              <textarea
+                value={q.domanda}
+                onChange={(e) =>
+                  setQuestions((prev) =>
+                    prev.map((p) =>
+                      p.id === q.id ? { ...p, domanda: e.target.value } : p
+                    )
+                  )
+                }
+                className="w-full border p-2 rounded-lg"
+                rows={2}
+              />
+              <select
+                value={q.soluzione ? "true" : "false"}
+                onChange={(e) =>
+                  setQuestions((prev) =>
+                    prev.map((p) =>
+                      p.id === q.id
+                        ? { ...p, soluzione: e.target.value === "true" }
+                        : p
+                    )
+                  )
+                }
+                className="w-full border p-2 rounded-lg"
               >
-                Salva
-              </button>
-              <button
-                className="delete-button"
-                onClick={() => deleteQuestion(q.id)}
-                aria-label={`Elimina domanda ${q.id}`}
-              >
-                Elimina
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+                <option value="true">Vero</option>
+                <option value="false">Falso</option>
+              </select>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => updateQuestion(q)}
+                  className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                >
+                  Salva
+                </button>
+                <button
+                  onClick={() => deleteQuestion(q.id)}
+                  className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700"
+                >
+                  Elimina
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

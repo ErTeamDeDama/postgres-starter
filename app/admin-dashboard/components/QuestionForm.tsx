@@ -21,32 +21,40 @@ export default function QuestionForm() {
   };
 
   return (
-    <div className="form-container">
-      <h2>Aggiungi una Fake News</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-xl shadow-md w-full max-w-xl space-y-4"
+      >
+        <h2 className="text-2xl font-bold text-center">Aggiungi una Fake News</h2>
         <textarea
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           required
-          className="input-field"
           placeholder="Scrivi la domanda da verificare"
-          aria-label="Testo della domanda"
           rows={4}
+          className="w-full p-3 border border-gray-300 rounded-lg"
         />
         <select
           value={answer ? "true" : "false"}
           onChange={(e) => setAnswer(e.target.value === "true")}
-          className="input-field"
-          aria-label="Seleziona se la risposta è vera o falsa"
+          className="w-full p-3 border border-gray-300 rounded-lg"
         >
           <option value="true">Vero</option>
           <option value="false">Falso</option>
         </select>
-        <button type="submit" className="submit-button">
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+        >
           Aggiungi
         </button>
         {message && (
-          <p className={`message ${messageType}`} style={{ marginTop: "1rem" }}>
+          <p
+            className={`text-center text-sm ${
+              messageType === "success" ? "text-green-600" : "text-red-600"
+            }`}
+          >
             {message}
           </p>
         )}
