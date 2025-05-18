@@ -1,5 +1,8 @@
+import Navbar from '@/components/Navbar'
+
 export default function faketoolkit() {
     return(
-        <h1>Fake news: il toolkit per riconoscerle</h1>
+        <Navbar />
+        
     )
 }
