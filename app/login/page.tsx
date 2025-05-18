@@ -29,7 +29,7 @@ export default function TokenLoginPage() {
         setLoading(false);
 
         if (res.ok) {
-            window.location.href = "/admin";
+            window.location.href = "/dama";
         } else {
             setError(data.message || "Token non valido.");
         }
