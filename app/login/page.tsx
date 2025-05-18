@@ -30,7 +30,7 @@ export default function TokenLoginPage() {
     setLoading(false);
 
     if (res.ok) {
-      window.location.href = "/dama";
+      window.location.href = "/fake-news";
     } else {
       setError(data.message || "Token non valido.");
     }

@@ -3,10 +3,14 @@ import { NextResponse } from 'next/server';
 export function middleware(request) {
 
   const session = request.cookies.get('session');
+  const risposte = request.cookies.get('risposte')
 
   // Se non c'è sessione e la pagina è /admin-dashboard, reindirizza
   if (!session && request.nextUrl.pathname.startsWith('/admin-dashboard')) {
-    return NextResponse.redirect(new URL('/dama', request.url));
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
+  if (!session && request.nextUrl.pathname.startsWith('/fake-news')) {
+    return NextResponse.redirect(new URL('/login', request.url));
   }
 
   // Altrimenti, consenti l'accesso
@@ -14,5 +18,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/admin-dashboard'], // Rimuovi il * per includere tutte le rotte
+  matcher: ['/admin-dashboard','/fake-news'], // Rimuovi il * per includere tutte le rotte
 };
