@@ -32,9 +32,6 @@ importers:
       aos:
         specifier: ^2.3.4
         version: 2.3.4
-      autoprefixer:
-        specifier: 10.4.16
-        version: 10.4.16(postcss@8.4.31)
       eslint:
         specifier: ^8
         version: 8.51.0
@@ -53,9 +50,6 @@ importers:
       next:
         specifier: ^15.1.6
         version: 15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      postcss:
-        specifier: ^8.4.31
-        version: 8.4.31
       postgres:
         specifier: ^3.4.5
         version: 3.4.5
@@ -65,13 +59,19 @@ importers:
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
-      tailwindcss:
-        specifier: ^3.3.3
-        version: 3.3.3
     devDependencies:
       '@types/react':
         specifier: ^19.0.8
         version: 19.0.8
+      autoprefixer:
+        specifier: 10.4.16
+        version: 10.4.16(postcss@8.4.31)
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
+      tailwindcss:
+        specifier: ^3.3.3
+        version: 3.3.3
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
