@@ -1,13 +1,18 @@
-import Navbar from '../components/Navbar';
-import HomeContent from '../components/HomeContent';
+// app/page.tsx
+import Hero from '@/components/Hero'
+import Features from '@/components/Features'
+import Footer from '@/components/Footer'
+import Navbar from '@/components/Navbar'
+import AOSInitializer from '@/components/AOSInitializer'
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <>
+    <main className="bg-black text-white min-h-screen">
+      <AOSInitializer />
       <Navbar />
-      <main className="bg-gray-900 min-h-screen py-12 px-4">
-        <HomeContent />
-      </main>
-    </>
-  );
+      <Hero />
+      <Features />
+      <Footer />
+    </main>
+  )
 }
