@@ -11,15 +11,15 @@ const Navbar: React.FC = () => {
       </Link>
 
       <div className="space-x-6 hidden md:flex">
-        <a href="#features" className="hover:underline text-gray-300">
-          Perché validare
-        </a>
-        <a href="#how" className="hover:underline text-gray-300">
+        <Link href="/fake-toolkit" className= "hover:underline text-gray-300">
+          Come riconoscere le fake news
+        </Link>
+        <Link href="/how" className= "hover:underline text-gray-300">
           Come funziona
-        </a>
-        <a href="#about" className="hover:underline text-gray-300">
-          Chi siamo
-        </a>
+        </Link>
+        <Link href="/about" className= "hover:underline text-gray-300">
+         Chi siamo
+        </Link>
       </div>
 
       <Link href="/login" className= "text-2xl font-bold text-white"> Login

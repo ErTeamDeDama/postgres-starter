@@ -20,10 +20,10 @@ export default function CreateAdminForm() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-gray-700">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-xl shadow-md w-full max-w-md space-y-4"
+        className="bg-gray-500 p-8 rounded-xl shadow-md w-full max-w-md space-y-4"
       >
         <h2 className="text-2xl font-bold text-center">Crea un nuovo Admin</h2>
         <input
@@ -32,7 +32,7 @@ export default function CreateAdminForm() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-          className="w-full p-3 border border-gray-300 rounded-lg"
+          className="w-full p-3 border border-gray-300 rounded-lg bg-gray-600"
         />
         <input
           type="password"
@@ -40,7 +40,7 @@ export default function CreateAdminForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="w-full p-3 border border-gray-300 rounded-lg"
+          className="w-full p-3 border border-gray-300 rounded-lg bg-gray-600"
         />
         <button
           type="submit"

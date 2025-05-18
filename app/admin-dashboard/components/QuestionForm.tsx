@@ -24,17 +24,17 @@ export default function QuestionForm() {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-xl shadow-md w-full max-w-xl space-y-4"
+        className="bg-white p-8 rounded-xl shadow-md w-full max-w-xl space-y-4"  // form domande 
       >
-        <h2 className="text-2xl font-bold text-center">Aggiungi una Fake News</h2>
-        <textarea
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          required
-          placeholder="Scrivi la domanda da verificare"
-          rows={4}
-          className="w-full p-3 border border-gray-300 rounded-lg"
-        />
+       <h2 className="text-2xl font-bold text-center text-white mb-4">Aggiungi una Fake News</h2>
+  <textarea
+    value={question}
+    onChange={(e) => setQuestion(e.target.value)}
+    required
+    placeholder="Scrivi la domanda da verificare"                       
+    rows={4}
+    className="w-full p-4 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500"
+  />
         <select
           value={answer ? "true" : "false"}
           onChange={(e) => setAnswer(e.target.value === "true")}
