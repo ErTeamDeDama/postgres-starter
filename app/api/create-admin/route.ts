@@ -1,8 +1,15 @@
-import postgres from 'postgres'
+import postgres from 'postgres';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
+const ACCESS_TOKEN = process.env.NEXT_PUBLIC_ACCESS_TOKEN!;
 
 export async function POST(req: Request) {
+  const auth = req.headers.get('authorization');
+
+  if (!auth || auth !== `Bearer ${ACCESS_TOKEN}`) {
+    return Response.json({ message: 'Accesso non autorizzato' }, { status: 401 });
+  }
+
   try {
     const { username, password } = await req.json();
 
@@ -10,7 +17,6 @@ export async function POST(req: Request) {
       return Response.json({ message: 'Tutti i campi sono obbligatori' }, { status: 400 });
     }
 
-    // Inserisci il nuovo admin nel database
     await sql`
       INSERT INTO users (username, password)
       VALUES (${username}, ${password})
