@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     const headers = new Headers();
     headers.append(
       'Set-Cookie',
-      `session=${username}; HttpOnly; Max-Age=86400; Path=/;`
+      `risposte=${username}; HttpOnly; Max-Age=86400; Path=/;`
     );
 
     return new Response(
