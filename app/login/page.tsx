@@ -15,6 +15,7 @@ export default function TokenLoginPage() {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ token }),
+            credentials: 'include'
         });
 
         let data;

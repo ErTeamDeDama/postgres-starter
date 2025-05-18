@@ -19,11 +19,11 @@ export async function POST(req: Request) {
       return Response.json({ message: 'Token non valido' }, { status: 401 });
     }
 
-    // Token valido, imposta il cookie
+    // Token valido: imposta cookie
     const headers = new Headers();
     headers.append(
       'Set-Cookie',
-      `risposte=${token}; HttpOnly; Max-Age=86400; Path=/;`
+      `risposte=${token}; HttpOnly; Max-Age=86400; Path=/; SameSite=Strict`
     );
 
     return new Response(
