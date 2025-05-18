@@ -29,18 +29,27 @@ export default function QuestionForm() {
           onChange={(e) => setQuestion(e.target.value)}
           required
           className="input-field"
-          placeholder="Scrivi la domanda"
+          placeholder="Scrivi la domanda da verificare"
+          aria-label="Testo della domanda"
+          rows={4}
         />
         <select
-          value={answer ? "vero" : "falso"}
-          onChange={(e) => setAnswer(e.target.value === "vero")}
+          value={answer ? "true" : "false"}
+          onChange={(e) => setAnswer(e.target.value === "true")}
           className="input-field"
+          aria-label="Seleziona se la risposta è vera o falsa"
         >
-          <option value="vero">Vero</option>
-          <option value="falso">Falso</option>
+          <option value="true">Vero</option>
+          <option value="false">Falso</option>
         </select>
-        <button type="submit" className="submit-button">Aggiungi</button>
-        {message && <p className={`message ${messageType}`}>{message}</p>}
+        <button type="submit" className="submit-button">
+          Aggiungi
+        </button>
+        {message && (
+          <p className={`message ${messageType}`} style={{ marginTop: "1rem" }}>
+            {message}
+          </p>
+        )}
       </form>
     </div>
   );

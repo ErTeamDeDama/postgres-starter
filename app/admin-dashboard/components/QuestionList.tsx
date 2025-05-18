@@ -7,7 +7,11 @@ type Question = {
   soluzione: boolean;
 };
 
-export default function QuestionList() {
+export default function QuestionList({
+  onCreateNew,
+}: {
+  onCreateNew?: () => void;
+}) {
   const [questions, setQuestions] = useState<Question[]>([]);
 
   useEffect(() => {
@@ -52,36 +56,63 @@ export default function QuestionList() {
   return (
     <div className="form-container">
       <h2>Domande inserite</h2>
-      <ul>
-        {questions.map((q, i) => (
-          <li key={i}>
+      {onCreateNew && (
+        <button
+          className="create-question-button"
+          onClick={onCreateNew}
+          aria-label="Aggiungi nuova domanda"
+        >
+          + Aggiungi Domanda
+        </button>
+      )}
+      <ul className="question-list">
+        {questions.map((q) => (
+          <li key={q.id}>
             <textarea
               value={q.domanda}
               onChange={(e) =>
-                setQuestions(prev =>
-                  prev.map(p => p.id === q.id ? { ...p, domanda: e.target.value } : p)
+                setQuestions((prev) =>
+                  prev.map((p) =>
+                    p.id === q.id ? { ...p, domanda: e.target.value } : p
+                  )
                 )
               }
               className="input-field"
+              aria-label={`Testo domanda ${q.id}`}
             />
             <select
               value={q.soluzione ? "true" : "false"}
               onChange={(e) =>
-                setQuestions(prev =>
-                  prev.map(p => p.id === q.id ? { ...p, soluzione: e.target.value === "true" } : p)
+                setQuestions((prev) =>
+                  prev.map((p) =>
+                    p.id === q.id
+                      ? { ...p, soluzione: e.target.value === "true" }
+                      : p
+                  )
                 )
               }
               className="input-field"
+              aria-label={`Soluzione domanda ${q.id}`}
             >
               <option value="true">Vero</option>
               <option value="false">Falso</option>
             </select>
-            <button className="save-button" onClick={() => updateQuestion(q)}>
-              Salva
-            </button>
-            <button className="delete-button" onClick={() => deleteQuestion(q.id)}>
-              Elimina
-            </button>
+            <div>
+              <button
+                className="save-button"
+                onClick={() => updateQuestion(q)}
+                aria-label={`Salva domanda ${q.id}`}
+              >
+                Salva
+              </button>
+              <button
+                className="delete-button"
+                onClick={() => deleteQuestion(q.id)}
+                aria-label={`Elimina domanda ${q.id}`}
+              >
+                Elimina
+              </button>
+            </div>
           </li>
         ))}
       </ul>
