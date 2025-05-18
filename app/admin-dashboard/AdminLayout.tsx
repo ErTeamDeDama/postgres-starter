@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 
 export default function AdminLayout({
@@ -15,131 +16,54 @@ export default function AdminLayout({
   const toggleDrawer = () => setDrawerOpen((open) => !open);
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Header */}
-      <header className="flex items-center justify-between bg-blue-600 text-white px-6 py-4 shadow-md">
-        {/* Hamburger */}
-        <div
-          className="md:hidden cursor-pointer space-y-1"
-          onClick={toggleDrawer}
-          role="button"
-          aria-label="Apri menu"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") toggleDrawer();
-          }}
-        >
-          <div className="w-6 h-0.5 bg-white" />
-          <div className="w-6 h-0.5 bg-white" />
-          <div className="w-6 h-0.5 bg-white" />
-        </div>
-
-        <h1 className="text-xl font-semibold">Admin Panel</h1>
-
+    <div className="min-h-screen bg-gray-900 text-white">
+      <header className="flex items-center justify-between p-4 bg-gray-800">
+        <button onClick={toggleDrawer} className="text-white md:hidden">
+          ☰
+        </button>
+        <h1 className="text-xl font-bold">Admin Panel</h1>
         <button
           onClick={onLogout}
-          className="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition hidden md:inline-block"
+          className="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded"
         >
           Logout
         </button>
       </header>
 
-      {/* Sidebar mobile */}
-      <nav
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 z-50 ${
-          drawerOpen ? "translate-x-0" : "-translate-x-full"
-        } md:hidden`}
-      >
-        <div className="p-6">
-          <h2 className="text-lg font-bold mb-4">Navigazione</h2>
-          <ul className="space-y-2">
-            <li
-              className="cursor-pointer text-blue-600 hover:underline"
-              onClick={() => {
-                onSelectView("create-admin");
-                setDrawerOpen(false);
-              }}
-            >
-              + Crea Admin
-            </li>
-            <li
-              className="cursor-pointer text-blue-600 hover:underline"
-              onClick={() => {
-                onSelectView("token-generator");
-                setDrawerOpen(false);
-              }}
-            >
-              + Genera Token
-            </li>
-            <li
-              className="cursor-pointer text-blue-600 hover:underline"
-              onClick={() => {
-                onSelectView("question-form");
-                setDrawerOpen(false);
-              }}
-            >
-              + Aggiungi Domanda
-            </li>
-            <li
-              className="cursor-pointer text-blue-600 hover:underline"
-              onClick={() => {
-                onSelectView("question-list");
-                setDrawerOpen(false);
-              }}
-            >
-              + Visualizza Domande
-            </li>
-            <li
-              className="mt-4 text-red-600 cursor-pointer hover:underline"
-              onClick={onLogout}
-            >
-              Logout
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      {/* Sidebar desktop */}
-      <div className="hidden md:flex">
-        <aside className="w-64 bg-white p-6 shadow-md min-h-screen">
-          <h2 className="text-lg font-bold mb-4">Navigazione</h2>
-          <ul className="space-y-2">
-            <li
-              className="cursor-pointer text-blue-600 hover:underline"
-              onClick={() => onSelectView("create-admin")}
-            >
-              + Crea Admin
-            </li>
-            <li
-              className="cursor-pointer text-blue-600 hover:underline"
-              onClick={() => onSelectView("token-generator")}
-            >
-              + Genera Token
-            </li>
-            <li
-              className="cursor-pointer text-blue-600 hover:underline"
-              onClick={() => onSelectView("question-form")}
-            >
-              + Aggiungi Domanda
-            </li>
-            <li
-              className="cursor-pointer text-blue-600 hover:underline"
-              onClick={() => onSelectView("question-list")}
-            >
-              + Visualizza Domande
-            </li>
-            <li
-              className="mt-4 text-red-600 cursor-pointer hover:underline"
-              onClick={onLogout}
-            >
-              Logout
-            </li>
-          </ul>
+      <div className="flex">
+        <aside
+          className={`bg-gray-800 text-white w-64 p-4 space-y-2 transition-all duration-300 ${
+            drawerOpen ? "block" : "hidden"
+          } md:block`}
+        >
+          <button
+            className="block w-full text-left hover:bg-gray-700 p-2 rounded"
+            onClick={() => onSelectView("create-admin")}
+          >
+            + Crea Admin
+          </button>
+          <button
+            className="block w-full text-left hover:bg-gray-700 p-2 rounded"
+            onClick={() => onSelectView("token-generator")}
+          >
+            + Genera Token
+          </button>
+          <button
+            className="block w-full text-left hover:bg-gray-700 p-2 rounded"
+            onClick={() => onSelectView("question-form")}
+          >
+            + Aggiungi Domanda
+          </button>
+          <button
+            className="block w-full text-left hover:bg-gray-700 p-2 rounded"
+            onClick={() => onSelectView("question-list")}
+          >
+            + Visualizza Domande
+          </button>
         </aside>
-      </div>
 
-      {/* Main Content */}
-      <main className="md:ml-64 p-6">{children}</main>
+        <main className="flex-1 p-6">{children}</main>
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import QuestionForm from "./components/QuestionForm";
 import QuestionList from "./components/QuestionList";
 
 export default function AdminPage() {
-  const [view, setView] = useState<"create-admin" | "token-generator" | "question-form" | "question-list">("create-admin");
+  const [view, setView] = useState("create-admin");
 
   const handleLogout = async () => {
     await fetch("/api/logout");
@@ -16,21 +16,16 @@ export default function AdminPage() {
   };
 
   const renderContent = () => {
-    switch (view) {
-      case "create-admin":
-        return <CreateAdminForm />;
-      case "token-generator":
-        return <TokenGeneratorForm />;
-      case "question-form":
-        return <QuestionForm />;
-      case "question-list":
-        return <QuestionList />;
-      default:
-        return null;
-    }
+    if (view === "create-admin") return <CreateAdminForm />;
+    if (view === "token-generator") return <TokenGeneratorForm />;
+    if (view === "question-form") return <QuestionForm />;
+    if (view === "question-list") return <QuestionList />;
+    return <div className="text-white">Nessuna vista selezionata</div>;
   };
 
-  <AdminLayout onSelectView={setView as (view: string) => void} onLogout={handleLogout}>
-  {renderContent()}
-  </AdminLayout>
+  return (
+    <AdminLayout onSelectView={setView} onLogout={handleLogout}>
+      {renderContent()}
+    </AdminLayout>
+  );
 }
