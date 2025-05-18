@@ -23,7 +23,7 @@ export default function QuestionList({
   const fetchQuestions = async () => {
     const res = await fetch("/api/get-questions", {
       headers: {
-        Authorization: `Bearer ${ACCESS_TOKEN}`,
+        "Authorization": `Bearer ${ACCESS_TOKEN}`,
       },
     });
     const data = await res.json();
@@ -35,7 +35,7 @@ export default function QuestionList({
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${ACCESS_TOKEN}`,
+        "Authorization": `Bearer ${ACCESS_TOKEN}`,
       },
       body: JSON.stringify(q),
     });
@@ -48,7 +48,7 @@ export default function QuestionList({
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
+          "Authorization" : `Bearer ${ACCESS_TOKEN}`,
         },
         body: JSON.stringify({ id }),
       });
