@@ -32,59 +32,59 @@ export default function AdminPage() {
     id: number;
   };
   const [questions, setQuestions] = useState<
-  { id: number; domanda: string; soluzione: boolean }[]
->([]);
+    { id: number; domanda: string; soluzione: boolean }[]
+  >([]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const handleEditChange = (index: number, field: "domanda" | "soluzione", value: any) => {
-  const updatedQuestions = [...questions];
-  updatedQuestions[index] = {
-    ...updatedQuestions[index],
-    [field]: value,
+    const updatedQuestions = [...questions];
+    updatedQuestions[index] = {
+      ...updatedQuestions[index],
+      [field]: value,
+    };
+    setQuestions(updatedQuestions);
   };
-  setQuestions(updatedQuestions);
-};
 
-const handleDelete = async (id: number) => {
-  if (!confirm("Sei sicuro di voler eliminare questa domanda?")) return;
-  try {
-    const res = await fetch("/api/delete-question", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id }),
-    });
-    const data = await res.json();
-    if (res.status === 200) {
-      setQuestions(questions.filter((q) => q.id !== id));
-    } else {
-      alert(data.message || "Errore durante l'eliminazione");
+  const handleDelete = async (id: number) => {
+    if (!confirm("Sei sicuro di voler eliminare questa domanda?")) return;
+    try {
+      const res = await fetch("/api/delete-question", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
+      const data = await res.json();
+      if (res.status === 200) {
+        setQuestions(questions.filter((q) => q.id !== id));
+      } else {
+        alert(data.message || "Errore durante l'eliminazione");
+      }
+    } catch (error) {
+      console.error("Errore nella cancellazione:", error);
     }
-  } catch (error) {
-    console.error("Errore nella cancellazione:", error);
-  }
-};
+  };
 
-const handleUpdate = async (id: number, index: number) => {
-  const q = questions[index];
-  try {
-    const res = await fetch("/api/update-question", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id,
-        domanda: q.domanda,
-        soluzione: q.soluzione,
-      }),
-    });
-    const data = await res.json();
-    if (res.status !== 200) {
-      alert(data.message || "Errore durante l'aggiornamento");
+  const handleUpdate = async (id: number, index: number) => {
+    const q = questions[index];
+    try {
+      const res = await fetch("/api/update-question", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id,
+          domanda: q.domanda,
+          soluzione: q.soluzione,
+        }),
+      });
+      const data = await res.json();
+      if (res.status !== 200) {
+        alert(data.message || "Errore durante l'aggiornamento");
+      }
+    } catch (error) {
+      console.error("Errore nella modifica:", error);
     }
-  } catch (error) {
-    console.error("Errore nella modifica:", error);
-  }
-};
+  };
 
   const handleLogout = async () => {
     try {
@@ -344,14 +344,14 @@ const handleUpdate = async (id: number, index: number) => {
                 />
               </div>
               <div className="input-group">
-        <select
-  value={questionAnswer ? "vero" : "falso"}
-  onChange={(e) => setQuestionAnswer(e.target.value === "vero")}
-  className="input-field"
->
-  <option value="vero">Vero</option>
-  <option value="falso">Falso</option>
-</select>
+                <select
+                  value={questionAnswer ? "vero" : "falso"}
+                  onChange={(e) => setQuestionAnswer(e.target.value === "vero")}
+                  className="input-field"
+                >
+                  <option value="vero">Vero</option>
+                  <option value="falso">Falso</option>
+                </select>
 
               </div>
               <button type="submit" className="submit-button">Aggiungi</button>
@@ -375,7 +375,7 @@ const handleUpdate = async (id: number, index: number) => {
                       className="editable-input"
                     />{" "}
                     <br />
-                    <strong>Risposta:</strong>{" "} 
+                    <strong>Risposta:</strong>{" "}
                     <select
                       value={q.soluzione ? "true" : "false"}
                       onChange={(e) =>
@@ -383,8 +383,8 @@ const handleUpdate = async (id: number, index: number) => {
                       }
                       className="editable-select"
                     >
-                      <option value="true" style={{backgroundColor:"black"}}>Vero</option>
-                      <option value="false" style={{backgroundColor:"black"}}>Falso</option>
+                      <option value="true" style={{ backgroundColor: "black" }}>Vero</option>
+                      <option value="false" style={{ backgroundColor: "black" }}>Falso</option>
                     </select>{" "}
                     <br />
                     <button className="save-button" onClick={() => handleUpdate(q.id, idx)}>Salva</button>
