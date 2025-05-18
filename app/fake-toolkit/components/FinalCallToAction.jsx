@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import ExpandingArrow from '@/components/expanding-arrow';
+
 
 export default function FinalCallToAction() {
   return (
