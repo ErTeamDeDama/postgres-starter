@@ -1,4 +1,4 @@
-/* Layout generale */
+/* ========== BASE LAYOUT ========== */
 .admin-page {
   background-color: #0d0d0d;
   color: #f0f0f0;
@@ -8,7 +8,7 @@
   flex-direction: column;
 }
 
-/* Header */
+/* ========== HEADER ========== */
 .admin-header {
   display: flex;
   justify-content: space-between;
@@ -18,7 +18,7 @@
   border-bottom: 1px solid #333;
 }
 
-/* Hamburger menu animato */
+/* ========== HAMBURGER MENU ========== */
 .menu-icon {
   cursor: pointer;
   display: flex;
@@ -46,7 +46,7 @@
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Logout minimal */
+/* ========== LOGOUT BUTTON ========== */
 .logout-minimal {
   background: none;
   color: #f0f0f0;
@@ -57,25 +57,28 @@
   padding: 6px 12px;
 }
 
-.logout-minimal:hover {
+.logout-minimal:hover,
+.logout-minimal:focus {
   color: #ff4c4c;
+  outline: none;
 }
 
-/* Drawer menu */
+/* ========== DRAWER MENU ========== */
 .side-drawer {
   position: absolute;
   top: 60px;
-  left: -240px;
+  left: 0;
+  transform: translateX(-100%);
   width: 220px;
   background: #181818;
   padding: 20px;
   border-right: 1px solid #333;
-  transition: left 0.3s ease;
+  transition: transform 0.3s ease;
   z-index: 1000;
 }
 
 .side-drawer.open {
-  left: 0;
+  transform: translateX(0);
 }
 
 .side-drawer ul {
@@ -96,7 +99,7 @@
   background: #333;
 }
 
-/* Main content */
+/* ========== MAIN CONTENT ========== */
 .admin-main {
   padding: 24px;
 }
@@ -110,7 +113,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Titolo del form */
+/* ========== FORM ========== */
 .form-title {
   font-size: 24px;
   font-weight: bold;
@@ -119,18 +122,17 @@
   text-align: center;
 }
 
-/* Stili comuni per entrambi i form */
-.admin-form, .token-form {
+.admin-form,
+.token-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Aggiungi spazio tra i gruppi di input */
 .input-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px; /* Aggiungi distanza tra i campi */
+  margin-bottom: 20px;
 }
 
 .input-field {
@@ -148,7 +150,6 @@
   outline: none;
 }
 
-/* Aggiungi un po' di distanza tra i pulsanti */
 .submit-button {
   padding: 14px;
   background: #4e9bff;
@@ -159,15 +160,16 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin-top: 10px; /* Aggiungi spazio sopra al pulsante */
+  margin-top: 10px;
 }
 
-.submit-button:hover {
+.submit-button:hover,
+.submit-button:focus {
   background: #357db6;
+  outline: none;
 }
 
-
-/* Messaggi di successo e errore */
+/* ========== MESSAGGI ========== */
 .message {
   padding: 12px;
   border-radius: 8px;
@@ -184,6 +186,8 @@
   background-color: #e74c3c;
   color: white;
 }
+
+/* ========== TOKEN GENERATI ========== */
 .generated-tokens {
   margin-top: 20px;
   background-color: #1e1e1e;
@@ -203,6 +207,8 @@
   padding: 4px 0;
   border-bottom: 1px solid #333;
 }
+
+/* ========== LISTA DOMANDE ========== */
 .question-list {
   margin-top: 20px;
   background-color: #1e1e1e;
@@ -215,18 +221,29 @@
 .question-list li {
   padding: 10px;
   border-bottom: 1px solid #444;
+  transition: background 0.2s ease;
 }
 
-.editable-input, .editable-select {
+.question-list li:hover {
+  background-color: #2a2a2a;
+}
+
+.editable-input,
+.editable-select {
   width: 100%;
-  padding: 5px;
-  margin: 5px 0;
+  padding: 10px;
+  font-size: 14px;
   background-color: #111;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 6px;
 }
 
+/* ========== BOTTONI AZIONE ========== */
 .question-list button {
   margin-right: 10px;
 }
+
 .save-button {
   background: transparent;
   border: 2px solid #000;
@@ -237,9 +254,11 @@
   transition: all 0.3s ease-in-out;
 }
 
-.save-button:hover {
+.save-button:hover,
+.save-button:focus {
   background: #000;
   color: #fff;
+  outline: none;
 }
 
 .delete-button {
@@ -252,7 +271,51 @@
   transition: all 0.3s ease-in-out;
 }
 
-.delete-button:hover {
+.delete-button:hover,
+.delete-button:focus {
   background: #ff0000;
   color: #fff;
+  outline: none;
+}
+
+/* ========== SCROLLBAR DARK (OPZIONALE) ========== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .form-container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .side-drawer {
+    width: 100%;
+  }
+
+  .submit-button,
+  .save-button,
+  .delete-button {
+    width: 100%;
+  }
 }
