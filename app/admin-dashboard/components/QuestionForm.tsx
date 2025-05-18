@@ -7,18 +7,22 @@ export default function QuestionForm() {
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState<"success" | "error" | "">("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const res = await fetch("/api/create-question", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question, answer }),
-    });
-    const data = await res.json();
-    setMessage(data.message);
-    setMessageType(res.ok ? "success" : "error");
-    if (res.ok) setQuestion("");
-  };
+const ACCESS_TOKEN = process.env.NEXT_PUBLIC_ACCESS_TOKEN || "";
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  const res = await fetch("/api/create-question", {
+    method: "POST",
+    headers: { 
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${ACCESS_TOKEN}`,
+    },
+    body: JSON.stringify({ question, answer }),
+  });
+  const data = await res.json();
+  setMessage(data.message);
+  setMessageType(res.ok ? "success" : "error");
+  if (res.ok) setQuestion("");
+};
 
   return (
    <div className="flex justify-center items-center min-h-screen bg-gray-900 px-4">
