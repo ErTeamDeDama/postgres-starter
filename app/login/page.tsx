@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
-export default function LoginPage() {
+export default function TokenLoginPage() {
   const [token, setToken] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,28 +22,46 @@ export default function LoginPage() {
     setLoading(false);
 
     if (res.ok) {
-      window.location.href = "/admin"; // o dove vuoi reindirizzare
+      window.location.href = "/admin";
     } else {
       setError(data.message || "Token non valido.");
     }
   };
 
   return (
-    <div className="login-page">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Accesso con Token</h1>
-        <input
-          type="text"
-          placeholder="Inserisci il token"
-          value={token}
-          onChange={(e) => setToken(e.target.value)}
-          required
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? "Verifica..." : "Accedi"}
-        </button>
-        {error && <p className="error">{error}</p>}
-      </form>
+    <div className="min-h-screen bg-black flex items-center justify-center text-white px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="w-full max-w-md bg-neutral-900 rounded-2xl shadow-2xl p-8 space-y-6 border border-neutral-700"
+      >
+        <h1 className="text-2xl font-semibold text-center tracking-tight">
+          Accesso Amministratore
+        </h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            placeholder="Inserisci il token"
+            value={token}
+            onChange={(e) => setToken(e.target.value)}
+            required
+            className="w-full px-4 py-3 rounded-xl bg-neutral-800 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold transition"
+          >
+            {loading ? "Verifica..." : "Accedi"}
+          </button>
+        </form>
+        {error && (
+          <p className="text-center text-red-500 font-medium">{error}</p>
+        )}
+        <p className="text-center text-sm text-neutral-500">
+          Autenticazione riservata agli amministratori
+        </p>
+      </motion.div>
     </div>
   );
 }

@@ -5,7 +5,9 @@ import React from 'react';
 const Navbar: React.FC = () => {
   return (
     <nav className="flex justify-between items-center px-8 py-6 border-b border-white/10 sticky top-0 z-50 backdrop-blur-md">
-      <h1 className="text-2xl font-bold text-white">ValidaFake</h1>
+      <Link href="/">
+        <Image src="../public/ValidaFakeWhite.png" alt="ValidaFake logo" width={120} height={40} />
+      </Link>
 
       <div className="space-x-6 hidden md:flex">
         <a href="#features" className="hover:underline text-gray-300">
