@@ -61,8 +61,12 @@ export default function QuestionList() {
               <option value="true">Vero</option>
               <option value="false">Falso</option>
             </select>
-            <button onClick={() => updateQuestion(q)}>Salva</button>
-            <button onClick={() => deleteQuestion(q.id)}>Elimina</button>
+            <button className="save-button" onClick={() => updateQuestion(q)}>
+              Salva
+            </button>
+            <button className="delete-button" onClick={() => deleteQuestion(q.id)}>
+              Elimina
+            </button>
           </li>
         ))}
       </ul>
