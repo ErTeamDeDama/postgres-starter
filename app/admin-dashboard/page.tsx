@@ -6,7 +6,6 @@ import CreateAdminForm from "./components/CreateAdminForm";
 import TokenGeneratorForm from "./components/TokenGeneratorForm";
 import QuestionForm from "./components/QuestionForm";
 import QuestionList from "./components/QuestionList";
-import "./styles.css";
 
 export default function AdminPage() {
   const [view, setView] = useState("create-admin");
