@@ -8,10 +8,9 @@
   --foreground: #fff;
 }
 
-@layer base{
-  body{
-    @apply bg-default text-default-text;
-  }
+body{
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 @media (prefers-color-scheme: dark) {
