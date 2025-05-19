@@ -1,4 +1,3 @@
-
 import postgres from 'postgres';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
@@ -16,13 +15,11 @@ function generateRandomString(length: number): string {
 }
 
 function isValidClassName(className: string): boolean {
-  // Aggiungi le regole di validazione per la classe, ad esempio:
-  const regex = /^[A-Za-z0-9\s]+$/; // Consente solo lettere, numeri e spazi
-  return regex.test(className) && className.length > 1; // Controlla anche la lunghezza minima
+  const regex = /^[A-Za-z0-9\s]+$/;
+  return regex.test(className) && className.length > 1;
 }
 
 export async function POST(req: Request) {
-  // Controllo header Authorization
   const authHeader = req.headers.get("authorization");
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return new Response(JSON.stringify({ message: "Unauthorized: token mancante" }), {
@@ -39,7 +36,6 @@ export async function POST(req: Request) {
     });
   }
 
-  // Corpo della richiesta
   const { className, tokenCount } = await req.json();
 
   if (
@@ -55,7 +51,6 @@ export async function POST(req: Request) {
     });
   }
 
-  // Verifica se la classe è valida
   if (!isValidClassName(className)) {
     return new Response(JSON.stringify({ message: "Classe non valida" }), {
       status: 400,
@@ -64,20 +59,16 @@ export async function POST(req: Request) {
   }
 
   try {
-    // Rimuove eventuali classi errate o non valide
-    await sql`
-     DELETE FROM classe WHERE nome !~ '^[A-Za-z0-9\\s]+$'`;
-
-    // Verifica se la classe esiste già
+    // Verifica se la classe esiste nella tabella `classi`
     const existingClass = await sql`
-      SELECT 1 FROM classe WHERE nome = ${className} LIMIT 1
+      SELECT 1 FROM classi WHERE classi = ${className} LIMIT 1
     `;
 
-    // Se non esiste, la inserisce
     if (existingClass.length === 0) {
+      // Inserisce la nuova classe con iniziali 0 corrette e sbagliate
       await sql`
-        INSERT INTO classe (nome)
-        VALUES (${className})
+        INSERT INTO classi (classi, correte, sbagliate)
+        VALUES (${className}, 0, 0)
       `;
     }
 
@@ -111,4 +102,3 @@ export async function POST(req: Request) {
     });
   }
 }
-
