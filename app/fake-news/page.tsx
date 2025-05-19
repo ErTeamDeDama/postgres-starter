@@ -1,114 +1,89 @@
 "use client";
+
+import React, { useEffect, useState } from "react";
+
 type Question = {
-    id: number;
-    domanda: string;
-    soluzione: boolean;
+  id: number;
+  domanda: string;
+  soluzione: boolean;
 };
 
-import { useEffect, useState } from "react";
+export default function QuestionPage() {
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [answers, setAnswers] = useState<{ [id: number]: boolean | null }>({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-type Domanda = {
-    id: number;
-    testo: string;
-};
+  useEffect(() => {
+    async function fetchQuestions() {
+      try {
+        const res = await fetch("/api/get-questions", {
+          headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
+          },
+        });
 
-export default function VerificaPage() {
-    const [questions, setQuestions] = useState<Domanda[]>([]);
-    const [answers, setAnswers] = useState<Record<number, "vero" | "falso" | null>>({});
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
-    const ACCESS_TOKEN = process.env.NEXT_PUBLIC_ACCESS_TOKEN || "";
+        if (!res.ok) {
+          throw new Error("Errore nel caricamento delle domande");
+        }
 
+        const data = await res.json();
 
-    useEffect(() => {
-        const fetchQuestions = async () => {
-            try {
-                const res = await fetch("/api/get-questions", {
-                    headers: {
-                        Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
-                    },
-                });
-                if (!res.ok) {
-                    throw new Error("Errore nel caricamento delle domande.");
-                }
-                const data = await res.json();
+        if (!data.questions || !Array.isArray(data.questions)) {
+          throw new Error("Formato delle domande non valido");
+        }
 
-                // Assumiamo che la risposta sia { questions: [...] }
-                if (!Array.isArray(data.questions)) {
-                    throw new Error("Formato delle domande non valido");
-                }
+        setQuestions(data.questions);
 
-                setQuestions(data.questions);
+        // Inizializza le risposte con null
+        const initialAnswers: { [id: number]: null } = {};
+        data.questions.forEach((q: Question) => {
+          initialAnswers[q.id] = null;
+        });
+        setAnswers(initialAnswers);
+      } catch (err: any) {
+        setError(err.message || "Errore sconosciuto");
+      } finally {
+        setLoading(false);
+      }
+    }
 
-                // Inizializza le risposte a null
-                const initialAnswers: { [key: number]: null } = {};
-                data.questions.forEach((q: Question) => {
-                    initialAnswers[q.id] = null;
-                });
-                setAnswers(initialAnswers);
-            } catch (err: any) {
-                setError(err.message || "Errore sconosciuto");
-            } finally {
-                setLoading(false);
-            }
-        };
+    fetchQuestions();
+  }, []);
 
-        fetchQuestions();
-    }, []);
+  function handleAnswerChange(id: number, value: boolean) {
+    setAnswers((prev) => ({ ...prev, [id]: value }));
+  }
 
-    const handleAnswerChange = (id: number, value: "vero" | "falso") => {
-        setAnswers((prev) => ({ ...prev, [id]: value }));
-    };
+  if (loading) return <div>Caricamento...</div>;
+  if (error) return <div>Errore: {error}</div>;
+  if (questions.length === 0) return <div>Nessuna domanda disponibile</div>;
 
-    const handleSubmit = () => {
-        console.log("Risposte inviate:", answers);
-        // TODO: Invia al backend se necessario
-        alert("Risposte salvate (vedi console)");
-    };
-
-    if (loading) return <div className="p-4 text-center">Caricamento domande...</div>;
-    if (error) return <div className="p-4 text-red-500 text-center">{error}</div>;
-
-    return (
-        <div className="max-w-3xl mx-auto p-6 space-y-6">
-            <h1 className="text-2xl font-bold text-center">Verifica: Domande Vero/Falso</h1>
-
-            {questions.map((domanda) => (
-                <div key={domanda.id} className="bg-white rounded-xl shadow p-4 space-y-2">
-                    <p className="font-medium">{domanda.testo}</p>
-                    <div className="flex gap-4">
-                        <label className="inline-flex items-center">
-                            <input
-                                type="radio"
-                                name={`domanda-${domanda.id}`}
-                                value="vero"
-                                checked={answers[domanda.id] === "vero"}
-                                onChange={() => handleAnswerChange(domanda.id, "vero")}
-                            />
-                            <span className="ml-2">Vero</span>
-                        </label>
-                        <label className="inline-flex items-center">
-                            <input
-                                type="radio"
-                                name={`domanda-${domanda.id}`}
-                                value="falso"
-                                checked={answers[domanda.id] === "falso"}
-                                onChange={() => handleAnswerChange(domanda.id, "falso")}
-                            />
-                            <span className="ml-2">Falso</span>
-                        </label>
-                    </div>
-                </div>
-            ))}
-
-            <div className="text-center">
-                <button
-                    onClick={handleSubmit}
-                    className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
-                >
-                    Invia Risposte
-                </button>
-            </div>
+  return (
+    <div>
+      {questions.map((q) => (
+        <div key={q.id} style={{ marginBottom: 20 }}>
+          <p>{q.domanda}</p>
+          <label>
+            <input
+              type="radio"
+              name={`answer-${q.id}`}
+              checked={answers[q.id] === true}
+              onChange={() => handleAnswerChange(q.id, true)}
+            />
+            Vero
+          </label>
+          <label style={{ marginLeft: 10 }}>
+            <input
+              type="radio"
+              name={`answer-${q.id}`}
+              checked={answers[q.id] === false}
+              onChange={() => handleAnswerChange(q.id, false)}
+            />
+            Falso
+          </label>
         </div>
-    );
+      ))}
+    </div>
+  );
 }
