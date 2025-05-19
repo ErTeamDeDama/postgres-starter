@@ -8,7 +8,8 @@ import FinalCallToAction from './components/FinalCallToAction';
 
 export default function faketoolkit() {
     return(
-    <>
+    <body className='bg-black'>
+      <>
       <Navbar />
       <HeroSection />
       <WhatAreFakeNews />
@@ -17,6 +18,8 @@ export default function faketoolkit() {
       <FinalCallToAction />
       <Footer />
     </>
+    </body>
+    
         
     )
 }
