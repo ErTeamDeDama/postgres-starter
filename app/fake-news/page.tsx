@@ -1,4 +1,9 @@
 "use client";
+type Question = {
+  id: number;
+  domanda: string;
+  soluzione: boolean;
+};
 
 import { useEffect, useState } from "react";
 
@@ -41,7 +46,7 @@ const ACCESS_TOKEN = process.env.NEXT_PUBLIC_ACCESS_TOKEN || "";
         setQuestions(data.questions);
 
         const initialAnswers: Record<number, "vero" | "falso" | null> = {};
-        data.forEach((q) => {
+        data.forEach((q: Question) => {
           initialAnswers[q.id] = null;
         });
 
