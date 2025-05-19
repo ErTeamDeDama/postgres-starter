@@ -54,6 +54,21 @@ export default function QuestionPage() {
     setAnswers((prev) => ({ ...prev, [id]: value }));
   }
 
+  function handleSubmit() {
+    // Verifica che tutte le domande siano state risposte
+    const unanswered = Object.entries(answers).filter(
+      ([, val]) => val === null
+    );
+    if (unanswered.length > 0) {
+      alert("Per favore rispondi a tutte le domande prima di inviare.");
+      return;
+    }
+
+    // Per ora stampiamo in console, puoi inviare a backend ecc.
+    console.log("Risposte inviate:", answers);
+    alert("Risposte inviate correttamente!");
+  }
+
   if (loading)
     return (
       <div className="flex justify-center items-center h-screen text-gray-600">
@@ -106,6 +121,15 @@ export default function QuestionPage() {
           </div>
         </div>
       ))}
+
+      <div className="flex justify-center">
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-md transition"
+        >
+          Invia
+        </button>
+      </div>
     </div>
   );
 }
