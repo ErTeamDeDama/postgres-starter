@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     if (!data || data.length === 0) {
       return Response.json({ message: 'Token non valido' }, { status: 401 });
     }
-    if(data[2].usato === true){
+    if(data[0].usato === true){
       return Response.json({ message: 'Token Usato' }, { status: 401 });
     }
 
