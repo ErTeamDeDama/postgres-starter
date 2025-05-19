@@ -35,7 +35,6 @@ export default function QuestionPage() {
 
         setQuestions(data.questions);
 
-        // Inizializza le risposte con null
         const initialAnswers: { [id: number]: null } = {};
         data.questions.forEach((q: Question) => {
           initialAnswers[q.id] = null;
@@ -55,33 +54,56 @@ export default function QuestionPage() {
     setAnswers((prev) => ({ ...prev, [id]: value }));
   }
 
-  if (loading) return <div>Caricamento...</div>;
-  if (error) return <div>Errore: {error}</div>;
-  if (questions.length === 0) return <div>Nessuna domanda disponibile</div>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-screen text-gray-600">
+        Caricamento...
+      </div>
+    );
+  if (error)
+    return (
+      <div className="flex justify-center items-center h-screen text-red-600">
+        Errore: {error}
+      </div>
+    );
+  if (questions.length === 0)
+    return (
+      <div className="flex justify-center items-center h-screen text-gray-600">
+        Nessuna domanda disponibile
+      </div>
+    );
 
   return (
-    <div>
+    <div className="max-w-3xl mx-auto p-4">
+      <h1 className="text-2xl font-semibold mb-6 text-center">Domande</h1>
       {questions.map((q) => (
-        <div key={q.id} style={{ marginBottom: 20 }}>
-          <p>{q.domanda}</p>
-          <label>
-            <input
-              type="radio"
-              name={`answer-${q.id}`}
-              checked={answers[q.id] === true}
-              onChange={() => handleAnswerChange(q.id, true)}
-            />
-            Vero
-          </label>
-          <label style={{ marginLeft: 10 }}>
-            <input
-              type="radio"
-              name={`answer-${q.id}`}
-              checked={answers[q.id] === false}
-              onChange={() => handleAnswerChange(q.id, false)}
-            />
-            Falso
-          </label>
+        <div
+          key={q.id}
+          className="bg-white shadow-md rounded-md p-5 mb-5 border border-gray-200"
+        >
+          <p className="text-gray-800 font-medium mb-4">{q.domanda}</p>
+          <div className="flex space-x-6">
+            <label className="inline-flex items-center cursor-pointer">
+              <input
+                type="radio"
+                name={`answer-${q.id}`}
+                className="form-radio text-blue-600"
+                checked={answers[q.id] === true}
+                onChange={() => handleAnswerChange(q.id, true)}
+              />
+              <span className="ml-2 text-gray-700">Vero</span>
+            </label>
+            <label className="inline-flex items-center cursor-pointer">
+              <input
+                type="radio"
+                name={`answer-${q.id}`}
+                className="form-radio text-blue-600"
+                checked={answers[q.id] === false}
+                onChange={() => handleAnswerChange(q.id, false)}
+              />
+              <span className="ml-2 text-gray-700">Falso</span>
+            </label>
+          </div>
         </div>
       ))}
     </div>
