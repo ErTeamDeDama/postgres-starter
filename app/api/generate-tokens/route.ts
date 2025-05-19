@@ -67,8 +67,9 @@ export async function POST(req: Request) {
     if (existingClass.length === 0) {
       // Inserisce la nuova classe con iniziali 0 corrette e sbagliate
       await sql`
-        INSERT INTO classi (classi, correte, sbagliate)
+       INSERT INTO classi (classi, correte, sbagliate)
         VALUES (${className}, 0, 0)
+
       `;
     }
 
