@@ -18,9 +18,13 @@ export default function QuestionForm() {
       setError("La domanda è obbligatoria.");
       return;
     }
-
+    let booleanAnswer;
     // Converte la stringa "true" o "false" in un booleano
-    const booleanAnswer = answer === "true";
+    if(answer === "true"){
+      booleanAnswer = true;
+    }else{
+      booleanAnswer = false;
+    }
 
     // Verifica che la risposta sia stata selezionata
     if (answer === "") {
