@@ -61,7 +61,7 @@ export async function POST(req: Request) {
   try {
     // Verifica se la classe esiste nella tabella `classi`
     const existingClass = await sql`
-      SELECT 1 FROM classi WHERE classi = ${className} LIMIT 1
+      SELECT 1 FROM classi WHERE classe = ${className} LIMIT 1
     `;
 
     if (existingClass.length === 0) {
