@@ -66,8 +66,7 @@ export async function POST(req: Request) {
   try {
     // Rimuove eventuali classi errate o non valide
     await sql`
-      DELETE FROM classe WHERE nome NOT LIKE '^[A-Za-z0-9\s]+$'
-    `;
+     DELETE FROM classe WHERE nome !~ '^[A-Za-z0-9\\s]+$'`;
 
     // Verifica se la classe esiste già
     const existingClass = await sql`
