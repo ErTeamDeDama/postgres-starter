@@ -34,11 +34,11 @@ const ACCESS_TOKEN = process.env.NEXT_PUBLIC_ACCESS_TOKEN || "";
         const data = await res.json();
         console.log("Domande ricevute:", data);
 
-        if (!Array.isArray(data)) {
+        if (!Array.isArray(data.questions)) {
           throw new Error("Formato delle domande non valido");
         }
 
-        setQuestions(data);
+        setQuestions(data.questions);
 
         const initialAnswers: Record<number, "vero" | "falso" | null> = {};
         data.forEach((q) => {
