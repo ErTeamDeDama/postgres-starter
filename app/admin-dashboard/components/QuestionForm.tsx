@@ -6,27 +6,42 @@ export default function QuestionForm() {
   const [answer, setAnswer] = useState<string>("false"); // Impostato come stringa
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState<"success" | "error" | "">("");
+  const [error, setError] = useState<string>("");
 
   const ACCESS_TOKEN = process.env.NEXT_PUBLIC_ACCESS_TOKEN || "";
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Converte la stringa "true" o "false" in un booleano
-    const booleanAnswer = answer === "true"; 
+    // Verifica che il campo question non sia vuoto
+    if (!question.trim()) {
+      setError("La domanda è obbligatoria.");
+      return;
+    }
 
+    // Converte la stringa "true" o "false" in un booleano
+    const booleanAnswer = answer === "true";
+
+    // Verifica che la risposta sia stata selezionata
+    if (answer === "") {
+      setError("La risposta è obbligatoria.");
+      return;
+    }
+
+    // Invia i dati al server
     const res = await fetch("/api/create-question", {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",
         "Authorization": `Bearer ${ACCESS_TOKEN}`,
       },
-      body: JSON.stringify({ question, answer: booleanAnswer }), // Invia il booleano al server
+      body: JSON.stringify({ question, answer: booleanAnswer }),
     });
     const data = await res.json();
     setMessage(data.message);
     setMessageType(res.ok ? "success" : "error");
     if (res.ok) setQuestion("");
+    setError(""); // Resetta l'errore in caso di successo
   };
 
   return (
@@ -36,6 +51,9 @@ export default function QuestionForm() {
         className="bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-xl space-y-5"
       >
         <h2 className="text-3xl font-bold text-center text-white mb-4">Aggiungi una Fake News</h2>
+
+        {/* Errore per campo vuoto */}
+        {error && <p className="text-red-500 text-center">{error}</p>}
 
         <textarea
           value={question}
@@ -75,3 +93,4 @@ export default function QuestionForm() {
     </div>
   );
 }
+
