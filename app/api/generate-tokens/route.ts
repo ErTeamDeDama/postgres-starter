@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     });
   }
 
-  const { className, tokenCount } = await req.json();
+  let { className, tokenCount } = await req.json();
   
   className = className.toLowerCase();
 
