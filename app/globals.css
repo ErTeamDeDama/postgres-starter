@@ -61,9 +61,7 @@
 }
 
 @layer base{
-  main{
-    @apply bg-darkBackground text-lightText max-w-6xl mx-auto px-6 py-12 text-base leading-relaxed;
-  }
+
   h2{
     @apply text-5xl font-extrabold mb-6 leading-tight text-softTeal;
   }
