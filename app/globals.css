@@ -16,9 +16,19 @@
   }
 }
 
-/* Navbar */
-.navbar {
-  background-color: var(--background);
-  color: var(--foreground); /* Imposta il colore del testo */
-   /* Puoi anche aggiungere del padding per migliorare la spaziatura */
+@import "tailwindcss";
+@theme{
+  --color-primario: #fff
 }
+
+
+
+
+
+
+@layer components{
+  .card{
+    @apply bg-white/5 p-6 rounded-xl border border-white/10
+  }
+}
+
