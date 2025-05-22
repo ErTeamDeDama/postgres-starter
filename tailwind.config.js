@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 // tailwind.config.js
 module.exports = {
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',      // per Next.js app directory
+    './components/**/*.{js,ts,jsx,tsx}',  // se hai componenti separati
+         // se usi la cartella pages
+  ],
   theme: {
     extend: {
       colors: {
