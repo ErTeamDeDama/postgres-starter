@@ -22,8 +22,9 @@ export async function POST(req: Request) {
 
   try {
     const { question, answer } = await req.json();
+    console.log(question + " " + answer);
 
-    if (!question || !answer) {
+    if (!question || answer === undefined) {
       return new Response(JSON.stringify({ message: "Tutti i campi sono obbligatori" }), {
         status: 400,
         headers: { "Content-Type": "application/json" },
