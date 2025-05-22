@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <Link href="/">
-        <Image src="/ValidaFakeWhite.png" alt="ValidaFake logo" width={50} height={40} />
+        <Image src="/ValidaFakePrimario.png" alt="ValidaFake logo" width={50} height={40} />
       </Link>
 
       <div className="menu-pc">
