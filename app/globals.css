@@ -49,10 +49,10 @@
   .card-container{
     @apply max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-12;
   }
-  .card{
-    @apply bg-panelBackground p-6 rounded-xl border border-borderDefault 
-           hover:borderAccent transition-colors duration-300;
-  }
+  .card {
+  @apply bg-panelBackground p-6 rounded-xl border border-borderDefault 
+         hover:border-borderAccent transition-colors duration-300;
+}
 
   .footer{
     @apply text-center text-sm py-12 border-t;
