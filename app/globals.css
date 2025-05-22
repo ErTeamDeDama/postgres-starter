@@ -40,7 +40,7 @@
   }
 
   .button{
-    @apply group inline-flex items-center px-6 py-3 bg-aquaAccent text-darkBackground rounded-xl 
+    @apply inline-flex items-center px-6 py-3 bg-aquaAccent text-darkBackground rounded-xl 
           transition-colors duration-300 
           hover:bg-softTeal hover:text-white font-semibold
           hover:shadow-lg hover:ring-2 hover:ring-softTeal;
