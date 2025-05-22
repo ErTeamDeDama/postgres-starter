@@ -16,19 +16,9 @@
   }
 }
 
-@import "tailwindcss";
-@theme{
-  --color-primario: #fff
-}
-
-
-
-
-
-
 @layer components{
   .card{
-    @apply bg-white/5 p-6 rounded-xl border border-white/10
+    @apply bg-white/5 p-6 rounded-xl border border-white/10;
   }
 }
 
