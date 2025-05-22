@@ -5,19 +5,19 @@ import Image from 'next/image';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="flex justify-between items-center px-8 py-6 border-b border-white/10 sticky top-0 z-50 backdrop-blur-md">
+    <nav className="navbar">
       <Link href="/">
         <Image src="/ValidaFakeWhite.png" alt="ValidaFake logo" width={50} height={40} />
       </Link>
 
-      <div className="space-x-6 hidden md:flex">
-        <Link href="/fake-toolkit" className= "hover:underline text-gray-300">
-          Come riconoscere le fake news
+      <div className="menu-pc">
+        <Link href="/fake-toolkit" className= "menu-link">
+          Rileva le Fake News
         </Link>
-        <Link href="/how" className= "hover:underline text-gray-300">
+        <Link href="/how" className= "menu-link">
           Come funziona
         </Link>
-        <Link href="/about" className= "hover:underline text-gray-300">
+        <Link href="/about" className= "menu-link">
          Chi siamo
         </Link>
       </div>
