@@ -74,12 +74,34 @@ export default function QuestionPage() {
         sbagliate.push(q.id);
       }
     });
-
-    console.log("Risposte corrette (ID):", corrette);
-    console.log("Risposte sbagliate (ID):", sbagliate);
-
-    alert(`Hai risposto correttamente a ${corrette.length} domande su ${questions.length}.`);
+    inviaRisposte(corrette.length,sbagliate.length)
   }
+  async function inviaRisposte(giuste: number, sbagliate: number) {
+
+      try {
+        const res = await fetch("/api/update-classe", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
+          },
+          body: JSON.stringify({ giuste, sbagliate }),
+          credentials: "include", // Importante per inviare i cookie HttpOnly come 'risposte'
+        });
+
+        if (!res.ok) {
+          const errorData = await res.json();
+          throw new Error(errorData.message || "Errore nella richiesta");
+        }
+
+        const data = await res.json();
+        console.log("Risposta dal server:", data);
+        alert("Risposte inviate con successo!");
+      } catch (err: any) {
+        console.error("Errore:", err.message);
+        alert("Errore: " + err.message);
+      }
+    }
 
   if (loading)
     return (

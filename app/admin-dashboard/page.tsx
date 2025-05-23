@@ -12,7 +12,7 @@ export default function AdminPage() {
 
   const handleLogout = async () => {
     await fetch("/api/logout");
-    window.location.href = "/admin";
+    window.location.href = "/";
   };
 
   const renderContent = () => {
