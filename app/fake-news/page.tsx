@@ -55,18 +55,30 @@ export default function QuestionPage() {
   }
 
   function handleSubmit() {
-    // Verifica che tutte le domande siano state risposte
-    const unanswered = Object.entries(answers).filter(
-      ([, val]) => val === null
-    );
+    const unanswered = Object.entries(answers).filter(([, val]) => val === null);
     if (unanswered.length > 0) {
       alert("Per favore rispondi a tutte le domande prima di inviare.");
       return;
     }
 
-    // Per ora stampiamo in console, puoi inviare a backend ecc.
-    console.log("Risposte inviate:", answers);
-    alert("Risposte inviate correttamente!");
+    const corrette: number[] = [];
+    const sbagliate: number[] = [];
+
+    questions.forEach((q) => {
+      const rispostaUtente = answers[q.id];
+      const rispostaCorretta = q.soluzione;
+
+      if (rispostaUtente === rispostaCorretta) {
+        corrette.push(q.id);
+      } else {
+        sbagliate.push(q.id);
+      }
+    });
+
+    console.log("Risposte corrette (ID):", corrette);
+    console.log("Risposte sbagliate (ID):", sbagliate);
+
+    alert(`Hai risposto correttamente a ${corrette.length} domande su ${questions.length}.`);
   }
 
   if (loading)
