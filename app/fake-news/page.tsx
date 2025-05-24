@@ -100,6 +100,7 @@ export default function QuestionPage() {
         console.log("Risposta dal server:", data);
         alert("Risposte inviate con successo!");
         router.push("/");
+        document.cookie = "risposte=; Max-Age=0; path=/; SameSite=Strict";
       } catch (err: any) {
         console.error("Errore:", err.message);
         alert("Errore: " + err.message);
