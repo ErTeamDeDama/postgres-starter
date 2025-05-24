@@ -99,8 +99,8 @@ export default function QuestionPage() {
         const data = await res.json();
         console.log("Risposta dal server:", data);
         alert("Risposte inviate con successo!");
-        router.push("/");
         document.cookie = "risposte=; Max-Age=0; path=/; SameSite=Strict";
+        router.push("/");
       } catch (err: any) {
         console.error("Errore:", err.message);
         alert("Errore: " + err.message);
