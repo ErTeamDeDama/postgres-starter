@@ -1,76 +1,71 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+'use client';
 
-interface Classe {
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+
+type Classe = {
   classe: string;
   corrette: number;
   sbagliate: number;
-}
+};
 
 export default function LeaderboardPage() {
-  const [classi, setClassi] = useState<Classe[]>([]);
+  const [leaderboard, setLeaderboard] = useState<Classe[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchLeaderboard() {
       try {
-        const res = await fetch("/api/leaderboard");
-        if (!res.ok) throw new Error("Errore nel caricamento delle classifiche");
-
+        const res = await fetch('/api/leaderboard'); // ← cambia percorso se diverso
         const data = await res.json();
-        // Ordina per numero di risposte corrette (più corrette -> più in alto)
-        const ordered = data.classi.sort((a: Classe, b: Classe) => b.corrette - a.corrette);
-        setClassi(ordered);
-      } catch (err: any) {
-        setError(err.message);
+        setLeaderboard(data.leaderboard);
+      } catch (error) {
+        console.error('Errore durante il fetch della leaderboard:', error);
       } finally {
         setLoading(false);
       }
     }
-    fetchData();
+
+    fetchLeaderboard();
   }, []);
 
   if (loading) {
-    return <div className="flex justify-center items-center h-screen text-gray-600">Caricamento...</div>;
-  }
-
-  if (error) {
-    return <div className="flex justify-center items-center h-screen text-red-600">Errore: {error}</div>;
+    return (
+      <div className="flex justify-center items-center h-screen text-gray-500 text-xl">
+        Caricamento...
+      </div>
+    );
   }
 
   return (
-    <div className="max-w-3xl mx-auto py-10 px-4">
-      <h1 className="text-3xl font-bold text-center mb-8">Classifica Classi</h1>
-      <motion.div
-        className="space-y-4"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: {},
-          visible: { transition: { staggerChildren: 0.1 } },
-        }}
-      >
-        {classi.map((classe, index) => (
+    <div className="max-w-2xl mx-auto p-6">
+      <h1 className="text-3xl font-bold text-center mb-8">🏆 Classifica</h1>
+      <div className="space-y-4">
+        {leaderboard.map((item, index) => (
           <motion.div
-            key={classe.classe}
-            className="bg-white shadow rounded-xl p-4 flex justify-between items-center border border-gray-100 hover:shadow-md transition"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            key={item.classe}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="bg-white shadow-lg rounded-xl p-4 flex justify-between items-center border border-gray-200"
           >
             <div className="flex items-center space-x-4">
-              <span className="text-xl font-bold text-blue-600">#{index + 1}</span>
-              <span className="text-lg font-medium text-gray-800">Classe {classe.classe}</span>
+              <div className="text-lg font-bold text-gray-700 w-6">
+                {index + 1}.
+              </div>
+              <div className="text-gray-800 font-medium">{item.classe}</div>
             </div>
-            <div className="text-sm text-gray-600">
-              ✅ {classe.corrette} &nbsp;&nbsp;&nbsp; ❌ {classe.sbagliate}
+            <div className="text-right">
+              <div className="text-green-600 font-semibold">
+                ✅ {item.corrette}
+              </div>
+              <div className="text-red-500 font-semibold">
+                ❌ {item.sbagliate}
+              </div>
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
