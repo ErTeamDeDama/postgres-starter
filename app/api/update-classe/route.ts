@@ -70,7 +70,9 @@ export async function PUT(req: Request) {
 
     return new Response(
       JSON.stringify({ message: "Domanda aggiornata con successo" }),
-      { status: 200, headers: { "Content-Type": "application/json" } }
+      { status: 200, headers: {
+        "Set-Cookie": `risposte=; HttpOnly; Path=/; Max-Age=0;SameSite=Strict; Secure`,
+        "Content-Type": "application/json" } }
     );
   } catch (error) {
     console.error("Errore PUT:", error);
