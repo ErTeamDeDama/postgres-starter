@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
 type Question = {
   id: number;
   domanda: string;
@@ -9,6 +9,7 @@ type Question = {
 };
 
 export default function QuestionPage() {
+  const router = useRouter();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<{ [id: number]: boolean | null }>({});
   const [loading, setLoading] = useState(true);
@@ -75,7 +76,7 @@ export default function QuestionPage() {
       }
     });
     inviaRisposte(corrette.length,sbagliate.length)
-    
+
   }
   async function inviaRisposte(giuste: number, sbagliate: number) {
 
@@ -98,6 +99,7 @@ export default function QuestionPage() {
         const data = await res.json();
         console.log("Risposta dal server:", data);
         alert("Risposte inviate con successo!");
+        router.push("/");
       } catch (err: any) {
         console.error("Errore:", err.message);
         alert("Errore: " + err.message);
