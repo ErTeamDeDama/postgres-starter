@@ -1,73 +1,75 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-type ClasseStats = {
+interface Classe {
   classe: string;
   corrette: number;
   sbagliate: number;
-};
+}
 
 export default function LeaderboardPage() {
-  const [data, setData] = useState<ClasseStats[]>([]);
+  const [classi, setClassi] = useState<Classe[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchLeaderboard() {
+    async function fetchData() {
       try {
         const res = await fetch("/api/leaderboard");
-        if (!res.ok) throw new Error("Errore nel caricamento");
+        if (!res.ok) throw new Error("Errore nel caricamento delle classifiche");
 
-        const json = await res.json();
-        setData(json.leaderboard || []);
+        const data = await res.json();
+        // Ordina per numero di risposte corrette (più corrette -> più in alto)
+        const ordered = data.classi.sort((a: Classe, b: Classe) => b.corrette - a.corrette);
+        setClassi(ordered);
       } catch (err: any) {
-        setError(err.message || "Errore sconosciuto");
+        setError(err.message);
       } finally {
         setLoading(false);
       }
     }
-
-    fetchLeaderboard();
+    fetchData();
   }, []);
 
-  if (loading)
-    return <div className="text-center mt-10 text-gray-600">Caricamento...</div>;
-  if (error)
-    return <div className="text-center mt-10 text-red-600">Errore: {error}</div>;
+  if (loading) {
+    return <div className="flex justify-center items-center h-screen text-gray-600">Caricamento...</div>;
+  }
+
+  if (error) {
+    return <div className="flex justify-center items-center h-screen text-red-600">Errore: {error}</div>;
+  }
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">Classifica Classi</h1>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse shadow-lg">
-          <thead className="bg-blue-600 text-white">
-            <tr>
-              <th className="p-3 text-left">Posizione</th>
-              <th className="p-3 text-left">Classe</th>
-              <th className="p-3 text-left">Corrette</th>
-              <th className="p-3 text-left">Sbagliate</th>
-              <th className="p-3 text-left">Totale</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((classe, index) => (
-              <tr
-                key={classe.classe}
-                className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
-              >
-                <td className="p-3 font-medium">{index + 1}</td>
-                <td className="p-3">{classe.classe}</td>
-                <td className="p-3 text-green-700">{classe.corrette}</td>
-                <td className="p-3 text-red-700">{classe.sbagliate}</td>
-                <td className="p-3">
-                  {classe.corrette + classe.sbagliate}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+    <div className="max-w-3xl mx-auto py-10 px-4">
+      <h1 className="text-3xl font-bold text-center mb-8">Classifica Classi</h1>
+      <motion.div
+        className="space-y-4"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.1 } },
+        }}
+      >
+        {classi.map((classe, index) => (
+          <motion.div
+            key={classe.classe}
+            className="bg-white shadow rounded-xl p-4 flex justify-between items-center border border-gray-100 hover:shadow-md transition"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <div className="flex items-center space-x-4">
+              <span className="text-xl font-bold text-blue-600">#{index + 1}</span>
+              <span className="text-lg font-medium text-gray-800">Classe {classe.classe}</span>
+            </div>
+            <div className="text-sm text-gray-600">
+              ✅ {classe.corrette} &nbsp;&nbsp;&nbsp; ❌ {classe.sbagliate}
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 }
