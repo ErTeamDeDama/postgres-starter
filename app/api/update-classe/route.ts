@@ -62,6 +62,11 @@ export async function PUT(req: Request) {
       SET corrette = corrette + ${giuste}, sbagliate = sbagliate + ${sbagliate}
       WHERE classe = ${classe}
     `;
+    await sql`
+      UPDATE token
+      SET usato = ${true}
+      WHERE classe = ${classe}
+    `;
 
     return new Response(
       JSON.stringify({ message: "Domanda aggiornata con successo" }),

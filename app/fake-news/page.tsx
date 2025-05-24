@@ -75,6 +75,7 @@ export default function QuestionPage() {
       }
     });
     inviaRisposte(corrette.length,sbagliate.length)
+    
   }
   async function inviaRisposte(giuste: number, sbagliate: number) {
 
