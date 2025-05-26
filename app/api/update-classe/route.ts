@@ -67,7 +67,7 @@ export async function PUT(req: Request) {
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
-    
+
     let classe = await getClasseFromToken(tokengiusto);
 
     // Aggiorna DB
@@ -78,7 +78,7 @@ export async function PUT(req: Request) {
     `;
     await sql`
       UPDATE token
-      SET usato = true
+      SET usato = ${true}
       WHERE token = ${token}
     `;
 
