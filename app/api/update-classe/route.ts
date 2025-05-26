@@ -4,6 +4,18 @@ const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN || "";
 
 export async function PUT(req: Request) {
+
+
+  async function getClasseFromToken(token: string) {
+  const result = await sql`
+      SELECT classe FROM token
+      WHERE token = ${token}
+      LIMIT 1
+    `;
+    return result[0]?.classe || null;
+  }
+
+
   // Verifica token di autorizzazione
   const authHeader = req.headers.get("authorization");
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -37,8 +49,8 @@ export async function PUT(req: Request) {
     })
   );
 
-  const classe = cookies["risposte"];
-  if (!classe) {
+  const tokengiusto = cookies["risposte"];
+  if (!token) {
     return new Response(
       JSON.stringify({ message: "Classe non trovata nel cookie" }),
       { status: 401, headers: { "Content-Type": "application/json" } }
@@ -55,6 +67,8 @@ export async function PUT(req: Request) {
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
+    
+    let classe = await getClasseFromToken(tokengiusto);
 
     // Aggiorna DB
     await sql`
@@ -64,15 +78,18 @@ export async function PUT(req: Request) {
     `;
     await sql`
       UPDATE token
-      SET usato = ${true}
-      WHERE classe = ${classe}
+      SET usato = true
+      WHERE token = ${token}
     `;
 
     return new Response(
       JSON.stringify({ message: "Domanda aggiornata con successo" }),
-      { status: 200, headers: {
-        "Set-Cookie": `risposte=; HttpOnly; Path=/; Max-Age=0;SameSite=Strict; Secure`,
-        "Content-Type": "application/json" } }
+      {
+        status: 200, headers: {
+          "Set-Cookie": `risposte=; HttpOnly; Path=/; Max-Age=0;SameSite=Strict; Secure`,
+          "Content-Type": "application/json"
+        }
+      }
     );
   } catch (error) {
     console.error("Errore PUT:", error);

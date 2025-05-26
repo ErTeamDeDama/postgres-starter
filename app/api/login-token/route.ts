@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     const headers = new Headers();
     headers.append(
       'Set-Cookie',
-      `risposte=${data[0].classe}; HttpOnly; Max-Age=86400; Path=/; SameSite=Strict`
+      `risposte=${token}; HttpOnly; Max-Age=86400; Path=/; SameSite=Strict`
     );
 
     return new Response(
