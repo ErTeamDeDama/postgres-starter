@@ -79,7 +79,7 @@ export async function PUT(req: Request) {
     await sql`
       UPDATE token
       SET usato = ${true}
-      WHERE token = ${token}
+      WHERE token = ${tokengiusto}
     `;
 
     return new Response(
