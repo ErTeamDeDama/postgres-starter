@@ -77,7 +77,7 @@ export async function PUT(req: Request) {
       WHERE classe = ${classe}
     `;
     await sql`
-      DELETE token
+      DELETE FROM token
       WHERE token = ${tokengiusto}
     `;
 
