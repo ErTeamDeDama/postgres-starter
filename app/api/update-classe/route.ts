@@ -7,7 +7,7 @@ export async function PUT(req: Request) {
 
 
   async function getClasseFromToken(token: string) {
-  const result = await sql`
+    const result = await sql`
       SELECT classe FROM token
       WHERE token = ${token}
       LIMIT 1
@@ -77,10 +77,10 @@ export async function PUT(req: Request) {
       WHERE classe = ${classe}
     `;
     await sql`
-      UPDATE token
-      SET usato = ${true}
+      DELETE token
       WHERE token = ${tokengiusto}
     `;
+
 
     return new Response(
       JSON.stringify({ message: "Domanda aggiornata con successo" }),
