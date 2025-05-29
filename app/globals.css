@@ -63,7 +63,7 @@
 @layer base{
 
   h2{
-    @apply text-5xl font-extrabold mb-6 leading-tight text-softTeal;
+    @apply text-5xl font-extrabold mb-6 leading-tight text-aquaAccent;
   }
   p{
     @apply text-xl text-lightText mb-8;
