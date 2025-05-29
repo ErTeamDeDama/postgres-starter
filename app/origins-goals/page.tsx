@@ -10,11 +10,12 @@ export default function OriginsGoalsPage() {
       <AOSInitializer />
       <Navbar />
 
-      <section className="bg-panelBackground p-6 rounded-lg shadow-lg mb-6" data-aos="fade-up">
-        <h1 className="text-aquaAccent text-2xl font-semibold mb-4">
+      <section className="p-6 rounded-lg shadow-lg mb-6" data-aos="fade-up">
+        
+        <h1>Perché nascono le fake news e a cosa servono</h1>
+        <h3>
           Come sono nate le fake news?
-        </h1>
-        <h2>Perché nascono le fake news e a cosa servono</h2>
+        </h3>
       </section>
 
       <FakeNewsIntro />
