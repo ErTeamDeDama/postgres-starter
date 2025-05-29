@@ -25,8 +25,8 @@ const Navbar: React.FC = () => {
 
       {/* Menu Desktop */}
       <div className="hidden md:flex space-x-6">
-        <Link href="/fake-toolkit" className="text-aquaAccent">Rileva le Fake News</Link>
-        <Link href="/origins-goals" className="text-aquaAccent">Origine e scopo</Link>
+        <Link href="/fake-toolkit" className="hover:text-aquaAccent">Rileva le Fake News</Link>
+        <Link href="/origins-goals" className="hover:text-aquaAccent">Origine e scopo</Link>
         <Link href="/about" className="hover:text-aquaAccent">Chi siamo</Link>
       </div>  
 
