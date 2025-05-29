@@ -8,6 +8,12 @@ export default function OriginsGoalsPage() {
     <>
     <AOSInitializer />
     <Navbar />
+    <main className='origins-goals-content'></main>
+    <section>
+      <h1 style={}> Come sono nate le fake nwes</h1>
+    
+
+    </section>
     <Footer />
     </>
    
