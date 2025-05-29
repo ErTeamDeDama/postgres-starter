@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between px-4 py-2 bg-black text-white relative">
+    <nav className="flex items-center justify-between px-4 py-2 bg-black text-white fixed">
       {/* Logo */}
       <Link href="/">
         <Image src="/ValidaFakePrimario.png" alt="ValidaFake logo" width={50} height={40} />
@@ -25,9 +25,9 @@ const Navbar: React.FC = () => {
 
       {/* Menu Desktop */}
       <div className="hidden md:flex space-x-6">
-        <Link href="/fake-toolkit" className="hover:underline">Rileva le Fake News</Link>
-        <Link href="/origins-goals" className="hover:underline">Origine e scopo</Link>
-        <Link href="/about" className="hover:underline">Chi siamo</Link>
+        <Link href="/fake-toolkit" className="hover:softTeal">Rileva le Fake News</Link>
+        <Link href="/origins-goals" className="hover:softTeal">Origine e scopo</Link>
+        <Link href="/about" className="hover:softTeal">Chi siamo</Link>
       </div>
 
       {/* Login - sempre visibile */}
