@@ -16,7 +16,7 @@ export default function OriginsGoalsPage() {
       </h1>
 
       <p className='text-lightText'>
-        Il nostro progetto è nato con l'idea di migliorare l'esperienza utente nel mondo digitale, creando una
+        Il nostro progetto è nato con l idea di migliorare l esperienza utente nel mondo digitale, creando una
         piattaforma che fosse al tempo stesso innovativa e accessibile a tutti.
         </p>
     
