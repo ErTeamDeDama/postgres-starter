@@ -9,18 +9,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        aquaAccent: "#5efc8d",         // Verde menta brillante (accento primario)
-        softTeal: "#3fb68b",           // Verde smeraldo soft (accento secondario)
-        darkBackground: "#0f0f0f",     // Sfondo scuro neutro
-        panelBackground: "#1a2b1e",    // Verde molto scuro, tono "bosco"
-        lightText: "#f1e4e8",          // Rosa chiaro/beige, leggibile su sfondi scuri
-        borderDefault: "#2e3d31",      // Verde/grigio scuro per bordi neutri
-        borderAccent: "#b8405e",       // Rosso lampone, per bordi o elementi attivi
-        muted: "rgba(184, 64, 94, 0.3)", // Rosso accentato ma trasparente
-        page: "#0f0f0f",               // Sfondo pagina coerente con darkBackground
-        panel: "#1a2b1e",              // Identico a panelBackground per consistenza
-      },
+        aquaAccent: "#6fffb0",
+        softTeal: "#3a8f7d",
+        darkBackground: "#0a0a0a",
+        panelBackground: "#121417",
+        lightText: "#e2e2e2",
+        borderDefault: "#252a2f",
+        borderAccent: "#ff5e5e",
+        muted: "rgba(255, 94, 94, 0.2)",
+        page: "#0a0a0a",
+        panel: "#121417",
+      }
     }
   }
 }
-
