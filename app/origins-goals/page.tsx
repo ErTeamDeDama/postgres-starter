@@ -10,7 +10,7 @@ export default function OriginsGoalsPage() {
     <Navbar />
     <main className='origins-goals-content'></main>
     <section>
-      <h1 style={}> Come sono nate le fake nwes</h1>
+      <h1> Come sono nate le fake nwes</h1>
     
 
     </section>
