@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        aquaAccent: "#66fcf1",
+        aquaAccent: "#5efc8d",
         softTeal: "#45a29e",
         darkBackground: "#0b0c10",
         panelBackground: "#1f2833",

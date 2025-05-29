@@ -6,7 +6,7 @@ import FakeNewsPurpose from './components/FajeNewsPurpose'
 
 export default function OriginsGoalsPage() {
   return (
-    <main className="origins-goals-content">
+    <main className="bg-black text-white min-h-screen">
       <AOSInitializer />
       <Navbar />
 
