@@ -1,12 +1,12 @@
 export default function FakeNewsPurpose() {
   return (
     <section className="bg-panel p-6 rounded-lg shadow-lg mb-6" data-aos="fade-left">
-      <h3 className="text-aquaAccent font-semibold text-lg mb-2">A cosa servono?</h3>
-      <p className="text-lightText">
-        Le fake news servono, in pratica, a <span className="text-borderAccent font-semibold">controllare la narrazione dei fatti</span>.
-        Chi le crea e le diffonde ha uno scopo preciso: <span className="text-borderAccent font-medium">cambiare la percezione</span> delle persone su un determinato argomento o situazione.
+      <h3 className="text-aquaAccent font-semibold text-lg mb-2 text-center">A cosa servono?</h3>
+      <p className="text-lightText text-center">
+        Le fake news servono a <span className="font-semibold">controllare la narrazione dei fatti</span>.
+        Chi le crea e le diffonde ha uno scopo preciso: cambiare la percezione delle persone su un argomento o situazione.
         <br /><br />
-        <strong className="text-borderAccent">Esempi concreti:</strong>
+        <strong>Esempi concreti:</strong>
         <br />
         - In politica: far vincere un candidato o danneggiare un avversario.<br />
         - Durante emergenze sanitarie: minare la fiducia in cure e vaccini.<br />
@@ -14,7 +14,7 @@ export default function FakeNewsPurpose() {
         - In campo sociale: creare divisioni e fomentare l’odio.
         <br /><br />
         Una fake news può avere effetti gravi: cambiare idee, influenzare decisioni
-        o persino <span className="text-borderAccent font-semibold">scatenare violenza</span>.
+        o persino scatenare violenza.
       </p>
     </section>
   );
