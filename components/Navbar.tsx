@@ -25,10 +25,10 @@ const Navbar: React.FC = () => {
 
       {/* Menu Desktop */}
       <div className="hidden md:flex space-x-6">
-        <Link href="/fake-toolkit" className="hover:softTeal">Rileva le Fake News</Link>
-        <Link href="/origins-goals" className="hover:softTeal">Origine e scopo</Link>
-        <Link href="/about" className="hover:softTeal">Chi siamo</Link>
-      </div>
+        <Link href="/fake-toolkit" className="hover:text-softTeal">Rileva le Fake News</Link>
+        <Link href="/origins-goals" className="hover:text-softTeal">Origine e scopo</Link>
+        <Link href="/about" className="hover:text-softTeal">Chi siamo</Link>
+      </div>  
 
       {/* Login - sempre visibile */}
       <Link href="/login" className="text-xl font-bold ml-4 hidden md:block">
