@@ -62,7 +62,7 @@
 
 @layer base{
   h1{
-    @apply text-aquaAccent text-6xl font-semibold mb-4
+    @apply text-aquaAccent text-5xl font-semibold mb-4
   }
   h2{
     @apply text-4xl font-extrabold mb-6 leading-tight text-aquaAccent;
