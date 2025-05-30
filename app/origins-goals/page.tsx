@@ -6,11 +6,11 @@ import FakeNewsPurpose from './components/FajeNewsPurpose';
 
 export default function OriginsGoalsPage() {
   return (
-    <main className="bg-page text-lightText min-h-screen flex flex-col items-center px-4">
+    <main className="bg-page text-lightText min-h-screen flex flex-col">
       <AOSInitializer />
       <Navbar />
 
-      <div className="w-full max-w-4xl">
+      <div className="w-full max-w-4xl items-center">
         <section className="bg-panel p-6 rounded-lg shadow-lg mb-6" data-aos="fade-up">
           <h1 className="text-2xl font-bold text-aquaAccent mb-4 text-center">
             Perché nascono le fake news e a cosa servono
