@@ -12,10 +12,9 @@ export default function OriginsGoalsPage() {
 
       <div className="w-full max-w-4xl flex flex-col items-center mx-auto">
         <section className="p-6 rounded-lg shadow-lg mb-6" data-aos="fade-up">
-          <h1 className="text-2xl font-bold text-aquaAccent mb-4">
+          <h1 className="font-bold text-aquaAccent mb-4">
             Perché nascono le fake news e a cosa servono
           </h1>
-          <h3 className="text-lg text-lightText">Come sono nate le fake news?</h3>
         </section>
 
         <FakeNewsIntro />
