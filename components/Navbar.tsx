@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
 
       {/* Menu Mobile */}
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-black flex flex-col items-center py-4 space-y-4 md:hidden z-50">
+        <div className="absolute top-full left-0 w-full bg-black flex flex-col items-center py-4 space-y-4 md:hidden z-max">
           <Link className='Link' href="/fake-toolkit" onClick={() => setMenuOpen(false)}>Rileva le Fake News</Link>
           <Link className='Link' href="/origins-goals" onClick={() => setMenuOpen(false)}>Origine e scopo</Link>
           <Link className='Link' href="/about" onClick={() => setMenuOpen(false)}>Chi siamo</Link>

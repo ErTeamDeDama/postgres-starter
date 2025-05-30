@@ -59,7 +59,7 @@
   }
 
   .Link{
-    @apply z-max bg-panelBackground;
+    @apply bg-panelBackground;
   }
   
 }
