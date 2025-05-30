@@ -37,15 +37,38 @@ const Navbar: React.FC = () => {
 
       {/* Menu Mobile */}
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-black flex flex-col items-center py-4 space-y-4 md:hidden z-max">
-          <Link className='Link' href="/fake-toolkit" onClick={() => setMenuOpen(false)}>Rileva le Fake News</Link>
-          <Link className='Link' href="/origins-goals" onClick={() => setMenuOpen(false)}>Origine e scopo</Link>
-          <Link className='Link' href="/about" onClick={() => setMenuOpen(false)}>Chi siamo</Link>
-          <Link className='Link font-bold' href="/login" onClick={() => setMenuOpen(false)} >
-            Login
-          </Link>
-        </div>
-      )}
+  <div className="fixed top-0 left-0 w-full h-full bg-black flex flex-col items-center justify-center space-y-6 z-[9999] transition-all duration-300 ease-in-out">
+    <Link
+      href="/fake-toolkit"
+      className="text-white text-2xl hover:text-aquaAccent"
+      onClick={() => setMenuOpen(false)}
+    >
+      Rileva le Fake News
+    </Link>
+    <Link
+      href="/origins-goals"
+      className="text-white text-2xl hover:text-aquaAccent"
+      onClick={() => setMenuOpen(false)}
+    >
+      Origine e scopo
+    </Link>
+    <Link
+      href="/about"
+      className="text-white text-2xl hover:text-aquaAccent"
+      onClick={() => setMenuOpen(false)}
+    >
+      Chi siamo
+    </Link>
+    <Link
+      href="/login"
+      className="text-white text-2xl font-bold hover:text-aquaAccent"
+      onClick={() => setMenuOpen(false)}
+    >
+      Login
+    </Link>
+  </div>
+)}
+
     </nav>
   );
 };
