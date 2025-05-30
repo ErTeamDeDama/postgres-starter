@@ -2,7 +2,7 @@ export default function FakeNewsPurpose() {
   return (
     <section className="p-6 rounded-lg shadow-lg mb-6" data-aos="">
       <h3 className="text-aquaAccent font-semibold text-lg mb-2" data-aos="fade-right">A cosa servono?</h3>
-      <p className="text-lightText" fade-left>
+      <p className="text-lightText" data-aos="fade-left">
         Le fake news servono a <span className="font-semibold">controllare la narrazione dei fatti</span>.
         Chi le crea e le diffonde ha uno scopo preciso: cambiare la percezione delle persone su un argomento o situazione.
         <br /><br />
