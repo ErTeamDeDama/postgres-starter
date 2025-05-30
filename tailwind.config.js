@@ -8,6 +8,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      zIndex: {
+        '60': '60',
+        '999': '999',
+        'max': '9999',
+      },
       colors: {
         aquaAccent: "#6fffb0",
         softTeal: "#3a8f7d",

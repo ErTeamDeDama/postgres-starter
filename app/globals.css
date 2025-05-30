@@ -74,7 +74,7 @@
     @apply text-xl text-lightText mb-8;
   }
   Link{
-    @apply z-50;
+    @apply z-max;
   }
 }
 
