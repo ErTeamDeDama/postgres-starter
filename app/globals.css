@@ -77,8 +77,6 @@
   p{
     @apply text-xl text-lightText mb-8;
   }
-  button{
-    @apply bg-softTeal hover:bg-aquaAccent
-  }
+  
 }
 

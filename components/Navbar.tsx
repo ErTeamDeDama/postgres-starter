@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
 
       {/* Menu Mobile */}
       {menuOpen && (
-  <div className="fixed top-0 left-0 w-full h-full bg-black flex flex-col items-center justify-center space-y-6 z-[9999] transition-all duration-300 ease-in-out">
+  <div className="fixed top-0 left-0 w-full h-auto bg-black flex flex-col items-center justify-center space-y-6 z-[9999] transition-all duration-300 ease-in-out">
     <Link
       href="/fake-toolkit"
       className="text-white text-2xl hover:text-aquaAccent"
