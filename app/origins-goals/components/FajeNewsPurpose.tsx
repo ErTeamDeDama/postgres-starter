@@ -1,6 +1,6 @@
 export default function FakeNewsPurpose() {
   return (
-    <section className="bg-panel p-6 rounded-lg shadow-lg mb-6" data-aos="fade-left">
+    <section className="p-6 rounded-lg shadow-lg mb-6" data-aos="fade-left">
       <h3 className="text-aquaAccent font-semibold text-lg mb-2">A cosa servono?</h3>
       <p className="text-lightText">
         Le fake news servono a <span className="font-semibold">controllare la narrazione dei fatti</span>.

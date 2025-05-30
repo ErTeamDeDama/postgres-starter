@@ -1,6 +1,6 @@
 export default function FakeNewsIntro() {
   return (
-    <section className="bg-panel p-6 rounded-lg shadow-lg mb-6" data-aos="fade-right">
+    <section className="p-6 rounded-lg shadow-lg mb-6" data-aos="fade-right">
       <p className="text-lightText ">
         Viviamo in un mondo dove le informazioni viaggiano super velocemente. Basta aprire un social,
         leggere un messaggio su WhatsApp o cliccare su un link e ci troviamo davanti a una notizia.
