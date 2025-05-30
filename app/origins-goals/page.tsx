@@ -10,7 +10,7 @@ export default function OriginsGoalsPage() {
       <AOSInitializer />
       <Navbar />
 
-      <div className="w-full max-w-4xl flex items-center">
+      <div className="w-full max-w-4xl flex flex-col items-center mx-auto">
         <section className="bg-panel p-6 rounded-lg shadow-lg mb-6" data-aos="fade-up">
           <h1 className="text-2xl font-bold text-aquaAccent mb-4">
             Perché nascono le fake news e a cosa servono
