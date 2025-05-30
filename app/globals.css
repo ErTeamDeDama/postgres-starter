@@ -57,6 +57,10 @@
   .footer{
     @apply text-center text-sm text-softTeal py-12 border-t border-borderAccent;
   }
+
+  .Link{
+    @apply z-max bgPanel;
+  }
   
 }
 
@@ -73,8 +77,6 @@
   p{
     @apply text-xl text-lightText mb-8;
   }
-  Link{
-    @apply z-max;
-  }
+  
 }
 
