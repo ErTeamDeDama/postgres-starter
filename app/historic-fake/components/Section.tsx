@@ -18,7 +18,7 @@ export default function FakeNewsSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          Le fake news hanno un impatto significativo sull'opinione pubblica e sui conflitti.
+          Le fake news hanno un impatto significativo sull opinione pubblica e sui conflitti.
         </motion.p>
 
         {/* Cerchietto in alto */}
