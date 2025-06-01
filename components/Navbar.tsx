@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import Image from 'next/image';
 import { FiMenu, FiX } from 'react-icons/fi'; // icone da react-icons
 
@@ -8,6 +8,16 @@ import { FiMenu, FiX } from 'react-icons/fi'; // icone da react-icons
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+useEffect(() => {
+  if (menuOpen) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+  return () => {
+    document.body.style.overflow = 'auto';
+  };
+}, [menuOpen]);
 
 
 
@@ -41,7 +51,7 @@ const Navbar: React.FC = () => {
 
  {/* Menu Mobile */}
 {menuOpen && (
-  <div className="fixed inset-0 bg-black flex flex-col items-center justify-center space-y-8 z-[9999]">
+  <div className="fixed inset-0 w-full h-screen bg-black flex flex-col items-center justify-center space-y-8 z-[99999]">
     <Link
       href="/fake-toolkit"
       onClick={() => setMenuOpen(false)}
@@ -72,6 +82,7 @@ const Navbar: React.FC = () => {
     </Link>
   </div>
 )}
+
 
     </nav>
   );
