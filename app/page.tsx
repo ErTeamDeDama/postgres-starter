@@ -7,12 +7,14 @@ import AOSInitializer from '@/components/AOSInitializer'
 
 export default function HomePage() {
   return (
-    <main className="bg-black text-white min-h-screen">
-      <AOSInitializer />
+    <>
       <Navbar />
-      <Hero />
-      <Features />
-      <Footer />
-    </main>
+      <main className="bg-black text-white min-h-screen">
+        <AOSInitializer />
+        <Hero />
+        <Features />
+        <Footer />
+      </main>
+    </>
   )
 }

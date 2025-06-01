@@ -9,16 +9,11 @@ const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
 useEffect(() => {
-  if (menuOpen) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = 'auto';
-  }
+  document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
   return () => {
     document.body.style.overflow = 'auto';
   };
 }, [menuOpen]);
-
 
 
   return (
