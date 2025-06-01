@@ -8,13 +8,16 @@ import { FiMenu, FiX } from 'react-icons/fi'; // icone da react-icons
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-useEffect(() => {
-  document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
-  return () => {
-    document.body.style.overflow = 'auto';
-  };
-}, [menuOpen]);
-
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [menuOpen]);
 
   return (
     <nav className="flex items-center justify-between px-4 py-2 bg-black text-white relative sticky">
@@ -44,39 +47,23 @@ useEffect(() => {
         Login
       </Link>
 
- {/* Menu Mobile */}
-{menuOpen && (
-  <div className="fixed inset-0 w-full h-screen bg-black flex flex-col items-center justify-center space-y-8 z-[99999]">
-    <Link
-      href="/fake-toolkit"
-      onClick={() => setMenuOpen(false)}
-      className="text-white text-2xl hover:text-aquaAccent"
-    >
-      Rileva le Fake News
-    </Link>
-    <Link
-      href="/origins-goals"
-      onClick={() => setMenuOpen(false)}
-      className="text-white text-2xl hover:text-aquaAccent"
-    >
-      Origine e scopo
-    </Link>
-    <Link
-      href="/about"
-      onClick={() => setMenuOpen(false)}
-      className="text-white text-2xl hover:text-aquaAccent"
-    >
-      Chi siamo
-    </Link>
-    <Link
-      href="/login"
-      onClick={() => setMenuOpen(false)}
-      className="text-white text-2xl font-bold hover:text-aquaAccent"
-    >
-      Login
-    </Link>
-  </div>
-)}
+  {/* Menu Mobile */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black flex flex-col items-center justify-center space-y-8 text-2xl z-[99999]">
+          <Link href="/fake-toolkit" onClick={() => setMenuOpen(false)} className="hover:text-aquaAccent">
+            Rileva le Fake News
+          </Link>
+          <Link href="/origins-goals" onClick={() => setMenuOpen(false)} className="hover:text-aquaAccent">
+            Origine e scopo
+          </Link>
+          <Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-aquaAccent">
+            Chi siamo
+          </Link>
+          <Link href="/login" onClick={() => setMenuOpen(false)} className="font-bold hover:text-aquaAccent">
+            Login
+          </Link>
+        </div>
+      )}
 
 
     </nav>
