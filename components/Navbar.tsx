@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { FiMenu, FiX } from 'react-icons/fi'; // icone da react-icons
 
@@ -9,12 +9,6 @@ const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
 
-    useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [menuOpen]);
 
 
   return (
@@ -46,38 +40,39 @@ const Navbar: React.FC = () => {
       </Link>
 
  {/* Menu Mobile */}
-      {menuOpen && (
-        <div className="fixed top-0 left-0 w-full h-screen bg-black flex flex-col items-center justify-center space-y-6 z-[9999] transition-all duration-300 ease-in-out">
-          <Link
-            href="/fake-toolkit"
-            className="text-white text-2xl hover:text-aquaAccent"
-            onClick={() => setMenuOpen(false)}
-          >
-            Rileva le Fake News
-          </Link>
-          <Link
-            href="/origins-goals"
-            className="text-white text-2xl hover:text-aquaAccent"
-            onClick={() => setMenuOpen(false)}
-          >
-            Origine e scopo
-          </Link>
-          <Link
-            href="/about"
-            className="text-white text-2xl hover:text-aquaAccent"
-            onClick={() => setMenuOpen(false)}
-          >
-            Chi siamo
-          </Link>
-          <Link
-            href="/login"
-            className="text-white text-2xl font-bold hover:text-aquaAccent"
-            onClick={() => setMenuOpen(false)}
-          >
-            Login
-          </Link>
-        </div>
-      )}
+{menuOpen && (
+  <div className="fixed inset-0 bg-black flex flex-col items-center justify-center space-y-8 z-[9999]">
+    <Link
+      href="/fake-toolkit"
+      onClick={() => setMenuOpen(false)}
+      className="text-white text-2xl hover:text-aquaAccent"
+    >
+      Rileva le Fake News
+    </Link>
+    <Link
+      href="/origins-goals"
+      onClick={() => setMenuOpen(false)}
+      className="text-white text-2xl hover:text-aquaAccent"
+    >
+      Origine e scopo
+    </Link>
+    <Link
+      href="/about"
+      onClick={() => setMenuOpen(false)}
+      className="text-white text-2xl hover:text-aquaAccent"
+    >
+      Chi siamo
+    </Link>
+    <Link
+      href="/login"
+      onClick={() => setMenuOpen(false)}
+      className="text-white text-2xl font-bold hover:text-aquaAccent"
+    >
+      Login
+    </Link>
+  </div>
+)}
+
     </nav>
   );
 };
