@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
 
   {/* Menu Mobile */}
       {menuOpen && (
-        <div className=" absolute inset-0 bg-black flex flex-col items-center justify-center space-y-8 text-2xl z-[99999]">
+        <div className=" absolute top-0 left-0 inset-0 bg-black flex flex-col items-center justify-center space-y-8 text-2xl z-[99999]">
           <Link href="/fake-toolkit" onClick={() => setMenuOpen(false)} className="hover:text-aquaAccent">
             Rileva le Fake News
           </Link>
