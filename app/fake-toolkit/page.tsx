@@ -1,25 +1,21 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import HeroSection from './components/HeroSection';
-import WhatAreFakeNews from './components/WhatAreFakeNews';
-import DetectionTips from './components/DetectionTips';
-import WhatToDo from './components/WhatToDo';
-import FinalCallToAction from './components/FinalCallToAction';
+import Intro from './components/Intro';
+import Steps from './components/Steps';
+import GoQuiz from './components/GoQuiz';
 
-export default function faketoolkit() {
+export default function page() {
     return(
-    <body className='bg-black'>
-      <>
-      <Navbar />
-      <HeroSection />
-      <WhatAreFakeNews />
-      <DetectionTips />
-      <WhatToDo />
-      <FinalCallToAction />
-      <Footer />
+    <>
+     <Navbar />
+    <main >      
+      <Intro />
+      <Steps />
+      <GoQuiz />
+      
+    </main>
+    <Footer />
     </>
-    </body>
-    
-        
-    )
+     
+  )
 }

@@ -20,7 +20,6 @@ export default function TokenLoginPage() {
     });
 
     let data;
-
     try {
       data = await res.json();
     } catch (error) {
@@ -37,14 +36,14 @@ export default function TokenLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center text-white px-4">
+    <div className="min-h-screen bg-darkBackground flex items-center justify-center text-lightText px-4">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-md bg-neutral-900 rounded-2xl shadow-2xl p-8 space-y-6 border border-neutral-700"
+        className="w-full max-w-md bg-panelBackground rounded-2xl shadow-xl p-8 space-y-6 border border-borderDefault"
       >
-        <h1 className="text-2xl font-semibold text-center tracking-tight">
-          Login
+        <h1 className="text-3xl font-bold text-center text-aquaAccent">
+          Accesso Token
         </h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -53,21 +52,34 @@ export default function TokenLoginPage() {
             value={token}
             onChange={(e) => setToken(e.target.value)}
             required
-            className="w-full px-4 py-3 rounded-xl bg-neutral-800 border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            className="w-full px-4 py-3 rounded-xl bg-[#1c1f23] border border-borderDefault focus:outline-none focus:ring-2 focus:ring-aquaAccent text-lightText placeholder-neutral-400 transition"
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-blue-600 hover:bg-blue-500 rounded-xl font-semibold transition"
+            className="w-full py-3 bg-aquaAccent text-black font-bold rounded-xl hover:bg-softTeal transition duration-300"
           >
             {loading ? "Verifica..." : "Accedi"}
           </button>
         </form>
+
         {error && (
-          <p className="text-center text-red-500 font-medium">{error}</p>
+          <p className="text-center text-red-500 font-semibold">{error}</p>
         )}
-        <p className="text-center text-sm text-neutral-500">
-          Inserisci il token che ti è stato dato
+
+        <p className="text-center text-sm text-white">
+          Inserisci il token che ti è stato fornito.
+        </p>
+
+        <p className="text-center text-sm text-white mt-2">
+          Non hai un token?{" "}
+          <a
+            href="/contatti"
+            className="text-aquaAccent underline hover:text-softTeal"
+          >
+            Contattaci per richiederlo
+          </a>
+          .
         </p>
       </motion.div>
     </div>

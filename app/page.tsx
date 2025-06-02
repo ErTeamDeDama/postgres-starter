@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="bg-black text-white min-h-screen">
+      <main>
         <AOSInitializer />
         <Hero />
         <Features />

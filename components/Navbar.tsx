@@ -32,13 +32,20 @@ const Navbar: React.FC = () => {
   {menuOpen ? <FiX /> : <FiMenu />}
 </button>
 
-      {/* Menu Desktop */}
-      <div className="hidden md:flex space-x-6">
-        <Link href="/fake-toolkit" className="hover:text-aquaAccent">Rileva le Fake News</Link>
-        <Link href="/origins-goals" className="hover:text-aquaAccent">Origine e scopo</Link>
-        <Link href="/about" className="hover:text-aquaAccent">Chi siamo</Link>
-        <Link href="/login" className="text-xl font-bold ml-4 hover:text-aquaAccent">Login</Link>
-      </div>
+      <div className="hidden md:flex w-full items-center">
+  {/* Menu centrato */}
+  <div className="flex justify-center flex-grow space-x-6">
+    <Link href="/fake-toolkit" className="hover:text-aquaAccent">Rileva le Fake News</Link>
+    <Link href="/origins-goals" className="hover:text-aquaAccent">Origine e scopo</Link>
+    <Link href="/about" className="hover:text-aquaAccent">Chi siamo</Link>
+  </div>
+
+  {/* Login a destra */}
+  <div className="mr-4">
+    <Link href="/login" className="text-xl font-bold hover:text-aquaAccent">Login</Link>
+  </div>
+</div>
+
 
       {/* Sidebar Mobile - Slide da sinistra */}
       <div
@@ -49,7 +56,7 @@ const Navbar: React.FC = () => {
 
         {/* Link Sidebar */}
         <div
-  className={`fixed left-0 top-[50px] w-full h-[calc(100%-100px)] z-[99999] bg-black text-white transform transition-transform duration-300 ease-in-out ${
+  className={`fixed left-0 top-[60px] w-full h-[calc(100%-100px)] z-[99999] bg-black text-white transform transition-transform duration-300 ease-in-out ${
     menuOpen ? 'translate-x-0' : '-translate-x-full'
   }`}
 >

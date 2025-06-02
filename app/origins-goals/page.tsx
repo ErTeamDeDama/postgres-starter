@@ -6,9 +6,11 @@ import FakeNewsPurpose from './components/FajeNewsPurpose';
 
 export default function OriginsGoalsPage() {
   return (
+    <>
+    <Navbar />
     <main className="bg-page text-lightText min-h-screen flex flex-col">
       <AOSInitializer />
-      <Navbar />
+      
 
       <div className="w-full max-w-4xl flex flex-col items-center mx-auto z-50">
         <section className="p-6 rounded-lg shadow-lg mb-6" data-aos="fade-up">
@@ -23,5 +25,7 @@ export default function OriginsGoalsPage() {
 
       <Footer />
     </main>
+    </>
+    
   );
 }
