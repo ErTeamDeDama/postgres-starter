@@ -1,6 +1,7 @@
 'use client';
 
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 
 export default function About() {
@@ -52,7 +53,9 @@ export default function About() {
             </ul>
           </motion.div>
         </motion.div>
+         <Footer />
       </main>
+      
     </>
   );
 }
