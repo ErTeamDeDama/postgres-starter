@@ -78,7 +78,7 @@
     @apply text-xl text-lightText mb-8;
   }
   main{
-    @apply min-h-screen bg-gradient-to-b from-darkBackground via-panelBackground to-darkBackground p-8
+    @apply min-h-screen bg-gradient-to-b from-darkBackground via-panelBackground to-darkBackground p-8 flex-grow m-auto
   }
 }
 

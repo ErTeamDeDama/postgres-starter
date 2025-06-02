@@ -23,17 +23,18 @@ module.exports = {
         'max': '9999',
       },
       colors: {
-        aquaAccent: "#6fffb0",
-        softTeal: "#3a8f7d",
-        darkBackground: "#0a0a0a",
-        panelBackground: "#121417",
-        lightText: "#e2e2e2",
-        borderDefault: "#252a2f",
-        borderAccent: "#ff5e5e",
-        muted: "rgba(255, 94, 94, 0.2)",
-        page: "#0a0a0a",
-        panel: "#121417",
-      }
+  aquaAccent: "#22d3ee",         // Azzurro ciano (verifica digitale)
+  softTeal: "#38bdf8",           // Blu cielo chiaro
+  darkBackground: "#0f172a",     // Blu navy profondo
+  panelBackground: "#1e293b",    // Grigio-azzurro scuro
+  lightText: "#e2e8f0",          // Grigio perla chiaro
+  borderDefault: "#475569",      // Grigio-blu medio
+  borderAccent: "#0ea5e9",       // Blu acceso (fiducia)
+  muted: "#64748b",              // Grigio-azzurro spento
+  page: "#0f172a",               // Sfondo coerente
+  panel: "#1e293b",              // Pannello coerente
+}
+
     }
   }
 }

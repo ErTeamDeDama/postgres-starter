@@ -1,34 +1,15 @@
 export default function FakeNewsIntro() {
   return (
-    <section className="p-6 rounded-lg shadow-lg mb-6" >
-      <h3 data-aos="fade-right" className="text-lg text-lightText">Come sono nate le fake news?</h3>
-
-      <p className="text-lightText " data-aos="fade-right">
-        Viviamo in un mondo dove le informazioni viaggiano super velocemente. Basta aprire un social,
-        leggere un messaggio su WhatsApp o cliccare su un link e ci troviamo davanti a una notizia.
-        Ma non tutte le notizie sono vere. Alcune, infatti, sono completamente inventate o volutamente
-        modificate: queste si chiamano <span className="text-aquaAccent font-semibold">fake news</span>.
-      </p>
-
-      <p className="text-lightText mt-4" data-aos="fade-left">
-        Le fake news non sono un errore o una svista, ma vengono create apposta per ingannare, confondere o
-        influenzare le persone. Sono diventate un fenomeno così grande che oggi è difficile distinguere subito
-        cosa è vero e cosa no. Ma perché esistono? A cosa servono? E perché così tanta gente ci casca?
-      </p>
-
-      <h3 className="mt-6 font-semibold text-lg text-aquaAccent " data-aos="fade-right">Perché nascono le fake news?</h3>
-      <p className="text-lightText mt-2" data-aos="fade-left">
-        Le fake news nascono per diversi motivi, e spesso dietro c’è una strategia ben precisa.
-        <br /><br />
-        <strong>1. Per fare soldi:</strong> attirare clic e guadagnare con la pubblicità.
-        <br /><br />
-        <strong>2. Per influenzare l’opinione pubblica:</strong> manipolare opinioni.
-        <br /><br />
-        <strong>3. Per creare confusione o panico:</strong> diffondere paura.
-        <br /><br />
-        <strong>4. Per attaccare qualcuno:</strong> danneggiare reputazioni.
-        <br /><br />
-        <strong>5. Per sostenere teorie complottiste:</strong> alimentare sospetti.
+    <section
+      className="p-8 rounded-lg shadow-lg mb-8 border border-borderDefault bg-panel"
+      data-aos="fade-up"
+    >
+      <h2 className="text-aquaAccent text-3xl font-semibold mb-4" data-aos="fade-right">
+        Che cosa sono le Fake News?
+      </h2>
+      <p className="text-lightText leading-relaxed" data-aos="fade-left">
+        Le <span className="font-semibold text-aquaAccent">fake news</span> sono notizie false o distorte create con l’intento di ingannare, confondere o manipolare l’opinione pubblica.
+        Si diffondono rapidamente, soprattutto tramite social media e piattaforme digitali.
       </p>
     </section>
   );

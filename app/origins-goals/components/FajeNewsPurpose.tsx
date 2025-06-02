@@ -1,20 +1,34 @@
 export default function FakeNewsPurpose() {
   return (
-    <section className="p-6 rounded-lg shadow-lg mb-6" data-aos="">
-      <h3 className="text-aquaAccent font-semibold text-lg mb-2" data-aos="fade-right">A cosa servono?</h3>
-      <p className="text-lightText" data-aos="fade-left">
-        Le fake news servono a <span className="font-semibold">controllare la narrazione dei fatti</span>.
-        Chi le crea e le diffonde ha uno scopo preciso: cambiare la percezione delle persone su un argomento o situazione.
-        <br /><br />
-        <strong>Esempi concreti:</strong>
-        <br />
-        - In politica: far vincere un candidato o danneggiare un avversario.<br />
-        - Durante emergenze sanitarie: minare la fiducia in cure e vaccini.<br />
-        - Nel mondo dello spettacolo o sport: alimentare gossip o rovinare carriere.<br />
-        - In campo sociale: creare divisioni e fomentare l’odio.
-        <br /><br />
-        Una fake news può avere effetti gravi: cambiare idee, influenzare decisioni
-        o persino scatenare violenza.
+    <section
+      className="p-8 rounded-lg shadow-lg mb-8 border border-borderDefault bg-panel"
+      data-aos="fade-up"
+    >
+      <h2 className="text-aquaAccent text-3xl font-semibold mb-4" data-aos="fade-right">
+        A cosa servono le fake news?
+      </h2>
+
+      <p className="text-lightText leading-relaxed mb-6" data-aos="fade-left">
+        Le fake news non sono solo bugie innocue, ma strumenti potenti per:
+      </p>
+
+      <ul className="list-disc list-inside text-lightText space-y-3 leading-relaxed" data-aos="fade-left">
+        <li>
+          <strong>Controllare la narrazione:</strong> influenzano ciò che le persone pensano o sentono riguardo a un evento.
+        </li>
+        <li>
+          <strong>Generare divisione sociale:</strong> alimentano tensioni e conflitti tra gruppi.
+        </li>
+        <li>
+          <strong>Distrarre dai veri problemi:</strong> spostano l’attenzione su false notizie.
+        </li>
+        <li>
+          <strong>Manipolare decisioni politiche ed economiche.</strong>
+        </li>
+      </ul>
+
+      <p className="text-lightText mt-6 leading-relaxed" data-aos="fade-up">
+        In sintesi, le fake news possono influenzare in modo profondo e duraturo la società, creando danni reali.
       </p>
     </section>
   );
