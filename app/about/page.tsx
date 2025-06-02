@@ -39,7 +39,7 @@ export default function About() {
             className="text-lg leading-relaxed text-gray-300"
           >
             Nelle ore di Educazione Civica ci siamo affacciati al mondo delle false notizie, abbiamo provato a inventarne di nuove e ci siamo anche imbattuti in notizie incredibilmente vere.
-            Ne abbiamo raccolte un po' e vi proponiamo di giocare ad individuare, tra quelle che vi proponiamo, quali sono quelle vere e quali quelle false: è soltanto un piccolo test per mettervi alla prova...
+            Ne abbiamo raccolte un po’ e vi proponiamo di giocare ad individuare, tra quelle che vi proponiamo, quali sono quelle vere e quali quelle false: è soltanto un piccolo test per mettervi alla prova…
           </motion.p>
 
           <motion.p
