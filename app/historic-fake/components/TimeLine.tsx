@@ -1,3 +1,5 @@
+'use client';
+
 import { fakeNews } from "../data/fakeNews";
 import TimelineItem from "./TimeLineItem";
 import { motion } from "framer-motion";
