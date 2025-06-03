@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
   }, [menuOpen]);
 
   return (
-    <nav className="flex items-center justify-between px-4 py-2 bg-black text-white relative sticky top-0 z-50">
+    <nav className="flex items-center justify-between px-4 py-2 bg-darkBackground text-white relative sticky top-0 z-50">
       {/* Logo */}
       <Link href="/">
         <Image src="/ValidaFakePrimario.png" alt="ValidaFake logo" width={50} height={40} />

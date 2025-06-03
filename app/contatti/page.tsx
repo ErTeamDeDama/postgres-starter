@@ -29,10 +29,10 @@ export default function ContactPage() {
               <span className="text-xl font-semibold text-lightText">Email di contatto:</span>
             </div>
             <a
-              href="mailto:info@validafake.it"
+              href="mailto:erteamdedama@gmail.com"
               className="text-aquaAccent text-lg underline hover:text-softTeal transition"
             >
-              ancoranonsoquale@email.it
+              erteamdedama@gmail.com
             </a>
             <p className="text-sm text-muted max-w-prose">
               Ti risponderemo appena possibile.

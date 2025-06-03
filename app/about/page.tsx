@@ -53,6 +53,7 @@ export default function About() {
             </ul>
           </motion.div>
         </motion.div>
+        <div className='py-10'></div>
          <Footer />
       </main>
       

@@ -18,8 +18,8 @@ const Features: React.FC=() =>(
           </Link>
         </div>
         <div data-aos="fade-up" data-aos-delay="200" className="card">
-          <h3 className="text-xl font-bold mb-2">Community</h3>
-          <p className="text-gray-400">Condividi e discuti con altri utenti sulle notizie del giorno.</p>
+          <h3 className="text-xl font-bold mb-2">Coming soon...</h3>
+          <p className="text-gray-400">Coming soon...</p>
         </div>
       </section>
 );

@@ -32,8 +32,8 @@ const Footer: React.FC = () => (
           <h4 className="text-lightText font-semibold mb-3">Contattaci</h4>
           <p className="text-sm text-muted">
             Per richieste o segnalazioni:<br />
-            <a href="mailto:info@validafake.it" className="text-aquaAccent hover:underline">
-              info@validafake.it
+            <a href="mailto:erteamdedama@gmail.com" className="text-aquaAccent hover:underline">
+              erteamdedama@gmail.com
             </a>
           </p>
         </div>
@@ -41,7 +41,7 @@ const Footer: React.FC = () => (
 
       {/* Copyright */}
       <div className="pt-6 border-t border-borderDefault w-full text-center text-xs text-muted">
-        &copy; {new Date().getFullYear()} Validafake. Tutti i diritti riservati.
+         Validafake. 
       </div>
     </div>
   </footer>
