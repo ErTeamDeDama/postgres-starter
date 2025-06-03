@@ -61,10 +61,7 @@ export default function LeaderboardPage() {
             </div>
             <div className="text-right">
               <div className="text-sm font-medium text-white">
-                Corrette: {item.corrette}
-              </div>
-              <div className="text-sm font-medium text-gray-400">
-                Sbagliate: {item.sbagliate}
+                Corrette: {(item.corrette/(item.corrette+item.sbagliate))*100}%
               </div>
             </div>
           </motion.div>
