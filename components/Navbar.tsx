@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
 
         {/* Link Sidebar */}
         <div
-  className={`fixed left-0 top-[60px] w-full h-[calc(100%-100px)] z-[99999] bg-black text-white transform transition-transform duration-300 ease-in-out ${
+  className={`fixed left-0 top-[60px] w-full h-[calc(100%-50px)] z-[99999] bg-dg-darkBackground text-white transform transition-transform duration-300 ease-in-out ${
     menuOpen ? 'translate-x-0' : '-translate-x-full'
   }`}
 >
