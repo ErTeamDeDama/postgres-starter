@@ -44,6 +44,7 @@ export default function LeaderboardPage() {
       </h1>
       <div className="max-w-3xl mx-auto space-y-4">
         {leaderboard.map((item, index) => (
+
           <motion.div
             key={item.classe}
             initial={{ opacity: 0, y: 20 }}
@@ -56,12 +57,16 @@ export default function LeaderboardPage() {
                 {index + 1}.
               </div>
               <div className="text-lg font-semibold text-white">
-                {item.classe}
+                {item.classe.toUpperCase()}
               </div>
             </div>
             <div className="text-right">
               <div className="text-sm font-medium text-white">
-                Corrette: {((item.corrette / (item.corrette + item.sbagliate)) * 100).toFixed(1)}%
+                Corrette: {
+                  isNaN((item.corrette / (item.corrette + item.sbagliate)) * 100)
+                    ? 0
+                    : ((item.corrette / (item.corrette + item.sbagliate)) * 100).toFixed(1)
+                }%
               </div>
             </div>
           </motion.div>

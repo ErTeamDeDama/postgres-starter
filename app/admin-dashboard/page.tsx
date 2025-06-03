@@ -6,6 +6,8 @@ import CreateAdminForm from "./components/CreateAdminForm";
 import TokenGeneratorForm from "./components/TokenGeneratorForm";
 import QuestionForm from "./components/QuestionForm";
 import QuestionList from "./components/QuestionList";
+import { Analytics } from "@vercel/analytics/next"
+
 
 export default function AdminPage() {
   const [view, setView] = useState("create-admin");
@@ -24,8 +26,11 @@ export default function AdminPage() {
   };
 
   return (
+    <>
+    <Analytics/>
     <AdminLayout onSelectView={setView} onLogout={handleLogout}>
       {renderContent()}
     </AdminLayout>
+    </>
   );
 }

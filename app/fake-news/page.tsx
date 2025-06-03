@@ -2,6 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Analytics } from "@vercel/analytics/next"
+
+
 type Question = {
   id: number;
   domanda: string;
@@ -14,6 +17,7 @@ export default function QuestionPage() {
   const [answers, setAnswers] = useState<{ [id: number]: boolean | null }>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
 
   useEffect(() => {
     async function fetchQuestions() {
@@ -128,7 +132,9 @@ export default function QuestionPage() {
 
   return (
     
+    
       <div className=" justify-center max-w-3xl md:mx-auto p-4 h-screen overflow-x-hidden">
+      <Analytics/>
       <h1 className="text-2xl font-semibold mb-6 text-center">Domande</h1>
       {questions.map((q) => (
         <div

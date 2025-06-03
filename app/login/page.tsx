@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/next"
 
 export default function TokenLoginPage() {
   const [token, setToken] = useState("");
@@ -37,6 +38,7 @@ export default function TokenLoginPage() {
 
   return (
     <div className="min-h-screen bg-darkBackground flex items-center justify-center text-lightText px-4">
+      <Analytics/>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

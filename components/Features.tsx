@@ -18,8 +18,10 @@ const Features: React.FC=() =>(
           </Link>
         </div>
         <div data-aos="fade-up" data-aos-delay="200" className="card">
-          <h3 className="text-xl font-bold mb-2">Coming soon...</h3>
-          <p className="text-gray-400">Coming soon...</p>
+          <Link href="/leaderboard">
+          <h3 className="text-xl font-bold mb-2">Leaderboard</h3>
+          <p className="text-gray-400">Vai a vedere i risultati delle classi</p>
+          </Link>
         </div>
       </section>
 );

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './login.module.css';
 import { handleSubmit } from './loginHelper';
 import Image from 'next/image';
+import { Analytics } from "@vercel/analytics/next"
 
 
 export default function AdminLogin() {
@@ -25,6 +26,7 @@ export default function AdminLogin() {
 
   return (
     <>
+    <Analytics/>
       {showToast && (
         <div className={styles.toast}>
           <Image src='/prova.png' alt="Errore" className={styles.toastIcon} />
