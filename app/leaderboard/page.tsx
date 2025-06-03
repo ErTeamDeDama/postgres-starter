@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Navbar from '@/components/Navbar'
 
 type Classe = {
   classe: string;
@@ -38,7 +39,9 @@ export default function LeaderboardPage() {
   }
 
   return (
-    <main>
+    <>
+    <Navbar />
+      <main>
       <h1 className="text-4xl font-bold text-center mb-10 tracking-tight">
         Classifica Classi
       </h1>
@@ -73,5 +76,8 @@ export default function LeaderboardPage() {
         ))}
       </div>
     </main>
+    </>
+
+    
   );
 }

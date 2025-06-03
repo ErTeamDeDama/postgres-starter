@@ -7,7 +7,7 @@ import GoQuiz from './components/GoQuiz';
 export default function page() {
     return(
     <>
-     <Navbar />
+    <Navbar />
     <main >      
       <Intro />
       <Steps />

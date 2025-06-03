@@ -15,8 +15,9 @@ export default function HomePage() {
         <AOSInitializer />
         <Hero />
         <Features />
-        <Footer />
+        
       </main>
+      <Footer />
     </>
   );
 }
