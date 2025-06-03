@@ -127,7 +127,7 @@ export default function QuestionPage() {
     );
 
   return (
-    <div className="flex flex-col items-center justify-center max-w-3xl md:mx-auto p-4 h-screen">
+    <div className=" justify-center max-w-3xl md:mx-auto p-4 h-screen">
       <h1 className="text-2xl font-semibold mb-6 text-center">Domande</h1>
       {questions.map((q) => (
         <div
