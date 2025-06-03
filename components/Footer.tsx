@@ -15,7 +15,7 @@ const Footer: React.FC = () => (
       {/* Navigazione e contatti */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
         {/* Pagine */}
-        <div>
+        <div className="text-center md:text-left">
           <h4 className="text-lightText font-semibold mb-3">Pagine</h4>
           <ul className="space-y-2 text-sm">
             <li><Link href="/" className="hover:text-aquaAccent transition">Home</Link></li>
