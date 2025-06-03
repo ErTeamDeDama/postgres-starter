@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
 
       {/* Sidebar Mobile - Slide da sinistra */}
       <div
-        className={`fixed top-0 left-0 w-full h-full z-[99999] bg-darkBackround text-white transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 w-full h-full z-[99999] bg-[#0f172a] text-white transform transition-transform duration-300 ease-in-out ${
           menuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -61,6 +61,9 @@ const Navbar: React.FC = () => {
   }`}
 >
   <div className="flex flex-col items-start px-6 py-6 space-y-6 text-lg">
+    <Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-aquaAccent">
+      Home
+    </Link>
     <Link href="/fake-toolkit" onClick={() => setMenuOpen(false)} className="hover:text-aquaAccent">
       Rileva le Fake News
     </Link>

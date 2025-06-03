@@ -38,7 +38,7 @@ export default function LeaderboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white py-12 px-4 sm:px-6 lg:px-8">
+    <main>
       <h1 className="text-4xl font-bold text-center mb-10 tracking-tight">
         Classifica Classi
       </h1>
@@ -72,6 +72,6 @@ export default function LeaderboardPage() {
           </motion.div>
         ))}
       </div>
-    </div>
+    </main>
   );
 }
