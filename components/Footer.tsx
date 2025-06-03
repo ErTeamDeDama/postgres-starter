@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const Footer: React.FC = () => (
-  <footer className="bg-panelBackground text-lightText border-t border-borderDefault mt-auto py-10 px-6 mx-0 w-full">
+  <footer className="bg-panelBackground text-lightText border-t border-borderDefault mt-auto py-auto px-6 mx-0 w-full">
     <div className="max-w-6xl mx-auto flex flex-col items-center space-y-10">
       
       {/* Logo + descrizione */}
