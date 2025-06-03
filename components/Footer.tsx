@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 const Footer: React.FC = () => (
-  <footer className="bg-panelBackground text-lightText border-t border-borderDefault mt-auto py-10 px-6">
-    <div className="max-w-6xl mx-auto flex flex-col items-center space-y-10 text-center">
+  <footer className="bg-panelBackground text-lightText border-t border-borderDefault mt-auto py-10 px-6 mx-0 w-full">
+    <div className="max-w-6xl mx-auto flex flex-col items-center space-y-10">
       
       {/* Logo + descrizione */}
-      <div className="max-w-3xl">
+      <div className="max-w-3xl text-center">
         <h3 className="text-aquaAccent font-semibold text-xl mb-2">Validafake</h3>
         <p className="text-sm text-muted">
           Combattiamo la disinformazione con strumenti semplici, educazione digitale e consapevolezza. Il nostro obiettivo è rendere ogni cittadino più consapevole nell’uso delle informazioni online.
@@ -28,7 +28,7 @@ const Footer: React.FC = () => (
         </div>
 
         {/* Contatti */}
-        <div>
+        <div className="text-center">
           <h4 className="text-lightText font-semibold mb-3">Contattaci</h4>
           <p className="text-sm text-muted">
             Per richieste o segnalazioni:<br />
